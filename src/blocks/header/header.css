@@ -1,0 +1,11 @@
+  .header {
+    background-color: #F5F5F5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    max-width: 80vw;
+    border-bottom: 1px solid #545454;
+    min-height: 56px;
+    margin: auto;
+  }
