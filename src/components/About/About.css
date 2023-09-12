@@ -1,0 +1,40 @@
+.about {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  border: 1px solid red;
+  margin: 20px auto;
+}
+
+.about__info {
+  padding: 20px 40px;
+  border: 1px solid blue;
+  width: 60%;
+}
+
+.about__info-title {
+  text-align: center;
+  font-weight: bold;
+}
+
+.about__info-description {
+  text-align: justify;
+  font-size: large;
+  font-style: italic;
+}
+.about__image {
+  background-image: url('../../images/IMG_4404.jpeg');
+  border-radius: 30px;
+  width: 300px;
+  background-size: cover;
+}
+
+.about__info-link {
+  display: flex;
+  width: 48px;
+  max-height: 48px;
+  height: 100%;
+  border: 1px solid red;
+  padding: 25px;
+  margin: 0 auto;
+}

@@ -1,0 +1,15 @@
+.technologies {
+  width: 80%;
+  margin: 0 auto;
+  border: 1px solid blue;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.technologies__logo {
+  padding: 25px;
+  max-height: 48px;
+  margin: auto;
+}
