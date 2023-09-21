@@ -1,15 +1,14 @@
 .technologies {
   width: 80%;
   margin: 0 auto;
-  /* border: 1px solid blue; */
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap; /* Permitir que los elementos hagan wrap en resoluciones más pequeñas */
   justify-content: center;
   align-items: center;
 }
 
 .technologies__logo {
-  padding: 25px;
-  max-height: 48px;
-  margin: auto;
+  padding: 15px; /* Espaciado uniforme entre los logos */
+  max-height: 48px; /* Tamaño máximo de los logos */
+  margin: 0 20px; /* Espacio horizontal entre los logos */
 }

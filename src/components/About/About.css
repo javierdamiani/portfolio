@@ -1,17 +1,14 @@
 .about {
   font-family: 'Ubuntu';
-  /* font-weight: bold; */
   display: flex;
   flex-direction: row;
   width: 80%;
-  /* border: 1px solid red; */
   margin: 20px auto;
   color: white;
 }
 
 .about__info {
   padding: 20px 40px;
-  /* border: 1px solid blue; */
   width: 60%;
 }
 
@@ -25,11 +22,16 @@
   font-size: large;
   font-style: italic;
 }
+
 .about__image {
+  /* border: 1px solid red; */
   background-image: url('../../images/IMG_4404.jpeg');
   border-radius: 30px;
-  width: 300px;
+  width: 100%; /* Ajusta el ancho al 100% del contenedor */
+  padding-top: 40%; /* Establece un espacio reservado para la imagen (manteniendo la relación de aspecto) */
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
   background-color: white;
 }
 
@@ -38,7 +40,55 @@
   width: 48px;
   max-height: 48px;
   height: 100%;
-  /* border: 1px solid red; */
   padding: 25px;
   margin: 0 auto;
+}
+
+@media screen and (max-width: 980px) {
+  .about {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about__info {
+    width: 100%; /* Ajusta el ancho al 100% en pantallas más pequeñas */
+  }
+
+  .about__image {
+    width: 80%; /* Ajusta el ancho de la imagen en pantallas más pequeñas */
+    padding-top: 60%; /* Mantén el espacio reservado para la imagen */
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .about__info-title {
+    font-size: 24px; /* Reduce el tamaño del título en pantallas más pequeñas */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .about__info-title {
+    font-size: 20px; /* Reduce aún más el tamaño del título en pantallas más pequeñas */
+  }
+
+  .about__info-description {
+    font-size: 16px; /* Reduce el tamaño de la descripción en pantallas más pequeñas */
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .about__info-title {
+    font-size: 18px; /* Ajusta el tamaño del título en pantallas muy pequeñas */
+  }
+
+  .about__info-description {
+    font-size: 14px; /* Ajusta el tamaño de la descripción en pantallas muy pequeñas */
+  }
+}
+
+@media screen and (max-width: 5120px) {
+  .about__image {
+    max-width: 400px;
+    /* padding-top: 40%; */
+  }
 }
