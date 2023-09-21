@@ -12,6 +12,7 @@
 
 .social__container-link {
   /* border: 1px solid blue; */
+  /* background-color: wheat; */
   max-width: 48px;
   max-height: 48px;
   height: 100%;
@@ -23,4 +24,9 @@
   max-height: 48px;
   height: 100%;
   width: 100%;
+}
+
+.social__container-link-icon--github {
+  border-radius: 200px;
+  background-color: white;
 }

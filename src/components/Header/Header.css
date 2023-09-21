@@ -1,4 +1,6 @@
 .header {
+  max-width: 1228px;
+  margin: 0 auto;
   display: flex;
   justify-content: flex-end;
   padding: 10px;

@@ -10,7 +10,8 @@
   font-size: 16px;
   /* border: 1px solid blue; */
   padding-left: 40px;
-  margin: 0 auto;
+  margin: 20px auto;
+  border-top: 3px dotted #10637d;
 }
 
 .contact__title {

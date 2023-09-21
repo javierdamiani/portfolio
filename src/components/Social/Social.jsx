@@ -1,6 +1,6 @@
 import React from 'react';
 import './Social.css';
-import githublogo from '../../images/icons8-github.svg';
+import githublogo from '../../images/Octicons-mark-github.svg.png';
 import linkedinlogo from '../../images/icons8-linkedin.svg';
 import pdfLogo from '../../images/pdf-svgrepo-com.svg';
 
@@ -25,7 +25,7 @@ function Social() {
             alt='Github logo'
             src={githublogo}
             href='https://github.com/javierdamiani'
-            className='social__container-link-icon'
+            className='social__container-link-icon social__container-link-icon--github'
           />
         </a>
         <a
