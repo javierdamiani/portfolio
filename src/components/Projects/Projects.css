@@ -1,0 +1,21 @@
+.projects {
+  font-family: 'Ubuntu';
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid blue; */
+  color: white;
+}
+
+.projects__title {
+  /* border: 1px solid red; */
+  text-align: center;
+}
+
+.projects__container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px 40px;
+  /* border: 1px solid red; */
+  margin: 0 auto;
+}

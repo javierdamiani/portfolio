@@ -1,0 +1,55 @@
+/* width: 400px; */
+
+.contact {
+  font-family: 'Ubuntu';
+  color: white;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 90%;
+  font-size: 16px;
+  /* border: 1px solid blue; */
+  padding-left: 40px;
+  margin: 0 auto;
+}
+
+.contact__title {
+  font-size: 30px;
+  /* border: 1px solid red; */
+}
+
+.contact__label {
+  font-size: 20px;
+  /* border: 1px solid red; */
+  padding-bottom: 10px;
+}
+
+.contact__input {
+  /* border: 1px solid red; */
+  width: 40%;
+  height: 20%;
+}
+
+.contact__textarea {
+  /* border: 1px solid red; */
+  width: 70%;
+  height: 200px;
+}
+
+.contact__button {
+  margin-top: 10px;
+  font-family: 'Ubuntu';
+  /* font-weight: bold; */
+  padding: 10px 20px;
+  background-color: #10637d;
+  color: white;
+  border: 2px solid #333;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+
+  &:hover {
+    background-color: #333;
+    color: #fff;
+  }
+}

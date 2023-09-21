@@ -1,14 +1,17 @@
 .about {
+  font-family: 'Ubuntu';
+  /* font-weight: bold; */
   display: flex;
   flex-direction: row;
   width: 80%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   margin: 20px auto;
+  color: white;
 }
 
 .about__info {
   padding: 20px 40px;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   width: 60%;
 }
 
@@ -27,6 +30,7 @@
   border-radius: 30px;
   width: 300px;
   background-size: cover;
+  background-color: white;
 }
 
 .about__info-link {
@@ -34,7 +38,7 @@
   width: 48px;
   max-height: 48px;
   height: 100%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   padding: 25px;
   margin: 0 auto;
 }

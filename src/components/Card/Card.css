@@ -1,0 +1,49 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 10px;
+  /* width: 500px; */
+  /* border: 1px solid red; */
+  border-radius: 30px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.card__img {
+  /* border: 1px solid red; */
+  width: 100%;
+  object-fit: cover;
+}
+
+/* .card__title {
+  border: 1px solid red;
+} */
+
+.card__description {
+  font-family: 'Ubuntu';
+  font-size: 18px;
+  /* border: 1px solid red; */
+  width: 85%;
+}
+
+/* .card__link {
+  border: 1px solid red;
+} */
+
+.card__link-btn {
+  font-family: 'Ubuntu';
+  /* font-weight: bold; */
+  padding: 10px 20px;
+  background-color: #10637d;
+  color: white;
+  border: 2px solid #333;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+
+  &:hover {
+    background-color: #333;
+    color: #fff;
+  }
+}

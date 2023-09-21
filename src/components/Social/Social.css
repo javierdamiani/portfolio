@@ -3,7 +3,7 @@
   flex-direction: column;
 }
 .social__container {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: flex;
   justify-content: space-around;
   width: 100%;
@@ -11,7 +11,7 @@
 }
 
 .social__container-link {
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   max-width: 48px;
   max-height: 48px;
   height: 100%;

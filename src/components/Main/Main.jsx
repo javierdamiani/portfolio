@@ -3,13 +3,15 @@ import './Main.css';
 import About from '../About/About';
 import Technologies from '../Technologies/Technologies';
 import Projects from '../Projects/Projects';
+import Contact from '../Contact/Contact';
 
-function Main() {
+function Main(props) {
   return (
     <>
       <About />
       <Technologies />
-      <Projects />
+      <Projects card={props.card} />
+      <Contact />
     </>
   );
 }

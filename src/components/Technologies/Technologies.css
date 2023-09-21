@@ -1,7 +1,7 @@
 .technologies {
   width: 80%;
   margin: 0 auto;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   display: flex;
   flex-direction: row;
   justify-content: center;
