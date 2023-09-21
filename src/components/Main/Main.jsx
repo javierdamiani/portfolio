@@ -7,12 +7,12 @@ import Contact from '../Contact/Contact';
 
 function Main(props) {
   return (
-    <>
+    <div className='main'>
       <About />
       <Technologies />
       <Projects card={props.card} />
       <Contact />
-    </>
+    </div>
   );
 }
 
