@@ -32,6 +32,7 @@
 } */
 
 .card__link-btn {
+  margin-bottom: 8px;
   font-family: 'Ubuntu';
   /* font-weight: bold; */
   padding: 10px 20px;

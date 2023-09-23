@@ -15,6 +15,14 @@ function Card(props) {
       >
         <button className='card__link-btn'>View Project</button>
       </a>
+      <a
+        href={props.card.preview}
+        className='card__link'
+        target='_blank'
+        rel='noreferrer'
+      >
+        <button className='card__link-btn'>View Preview Live</button>
+      </a>
     </div>
   );
 }
