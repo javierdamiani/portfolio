@@ -10,7 +10,7 @@ const Data = [
     name: 'Pokecats',
     description:
       'Introducing PokeCats: A captivating React-based project that seamlessly blends the world of Pokémon with cat adoption. Experience the magic in every meow!"',
-    link: 'https://github.com/javierdamiani/pokeCats-javierdamiani-frontend/tree/main/pokecats-frontend',
+    link: 'https://github.com/javierdamiani/pokeCats-javierdamiani-frontend/tree/main',
     preview: 'https://pokecats-9tg7smr0a-javierdamiani.vercel.app/',
   },
   {

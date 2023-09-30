@@ -26,7 +26,7 @@
 .about__image {
   /* border: 1px solid red; */
   background-image: url('../../images/IMG_4404.jpeg');
-  border-radius: 30px;
+  border-radius: 300px;
   width: 100%; /* Ajusta el ancho al 100% del contenedor */
   padding-top: 40%; /* Establece un espacio reservado para la imagen (manteniendo la relación de aspecto) */
   background-size: cover;
