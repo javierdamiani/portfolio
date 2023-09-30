@@ -13,7 +13,7 @@ function Card(props) {
         target='_blank'
         rel='noreferrer'
       >
-        <button className='card__link-btn'>View Code 🤓</button>
+        <button className='card__link-btn'>View Code 💻 </button>
       </a>
       <a
         href={props.card.preview}
