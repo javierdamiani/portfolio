@@ -3,13 +3,8 @@ import './Header.css';
 
 function Header() {
   const screenWidth = window.innerWidth;
-
-  function scrollToAbout() {
-    window.scrollTo({
-      top: 30,
-      behavior: 'smooth',
-    });
-  }
+  const CV_URL =
+    'https://drive.google.com/file/d/14m-A3_rNaaf6f8BhweCsV497_3Be50GH/view?usp=sharing';
 
   function scrollToProjects() {
     let top = 600;
@@ -37,9 +32,18 @@ function Header() {
     <>
       <header className='header'>
         <div className='header__buttons'>
-          <button className='header__button' onClick={scrollToAbout}>
-            About me
-          </button>
+          <a
+            href={CV_URL}
+            className='header__button header__button-cv'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            Download my CV
+            <span className='button-text'>
+              It's free
+              <div className='arrow-down'></div>
+            </span>
+          </a>
           <button className='header__button' onClick={scrollToProjects}>
             Projects
           </button>

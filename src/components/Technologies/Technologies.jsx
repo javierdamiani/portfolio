@@ -11,13 +11,16 @@ import webpacklogo from '../../images/icons8-webpack.svg';
 function Technologies() {
   return (
     <div className='technologies'>
-      <img src={htmllogo} alt='' className='technologies__logo' />
-      <img src={csslogo} alt='' className='technologies__logo' />
-      <img src={jslogo} alt='' className='technologies__logo' />
-      <img src={reactlogo} alt='' className='technologies__logo' />
-      <img src={nodejslogo} alt='' className='technologies__logo' />
-      <img src={mongodblogo} alt='' className='technologies__logo' />
-      <img src={webpacklogo} alt='' className='technologies__logo' />
+      <h2 className='technologies__title'>Skills</h2>
+      <div className='technologies__container'>
+        <img src={htmllogo} alt='' className='technologies__logo' />
+        <img src={csslogo} alt='' className='technologies__logo' />
+        <img src={jslogo} alt='' className='technologies__logo' />
+        <img src={reactlogo} alt='' className='technologies__logo' />
+        <img src={nodejslogo} alt='' className='technologies__logo' />
+        <img src={mongodblogo} alt='' className='technologies__logo' />
+        <img src={webpacklogo} alt='' className='technologies__logo' />
+      </div>
     </div>
   );
 }

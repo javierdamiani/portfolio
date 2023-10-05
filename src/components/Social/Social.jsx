@@ -41,7 +41,7 @@ function Social() {
             className='social__container-link-icon'
           />
         </a>
-        <a
+        {/* <a
           href={CV_URL}
           className='social__container-link'
           target='_blank'
@@ -52,7 +52,7 @@ function Social() {
             src={pdfLogo}
             className='social__container-link-icon'
           />
-        </a>
+        </a> */}
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ import fifaGamesImg from '../images/chrome-capture-2023-8-16.gif';
 import aroundUsImg from '../images/Copia de chrome-capture-2023-8-16.gif';
 import firstProjectImg from '../images/firstProject.gif';
 import thirdProjectImg from '../images/dePatriaAPatria.gif';
+import portfolioProject from '../images/portfolio.gif';
 
 const Data = [
   {
@@ -47,7 +48,17 @@ const Data = [
     description:
       'Is a project where I honed my skills with both display flex and display grid, showcasing the versatility of web design.',
     link: 'https://javierdamiani.github.io/web_project_3_esp/',
+    preview: 'https://javierdamiani.github.io/web_project_3_esp.github.io/',
     id: '5',
+  },
+  {
+    img: portfolioProject,
+    name: 'Javier Damiani Portfolio',
+    description:
+      'Explore my web portfolio: A showcase of web development and design projects, showcasing creativity and skills.',
+    link: 'https://github.com/javierdamiani/portfolio',
+    preview: 'https://javierdamiani.com/',
+    id: '6',
   },
 ];
 

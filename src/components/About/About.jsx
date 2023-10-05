@@ -8,7 +8,7 @@ function About() {
     <div className='about'>
       <div className='about__image'></div>
       <div className='about__info'>
-        <h2 className='about__info-title'> Javier Luis Damiani Arellano</h2>
+        <h1 className='about__info-title'> Javier Luis Damiani Arellano</h1>
         <p className='about__info-description'>
           I'm a skilled Fullstack Web Developer with proficiency in JavaScript,
           React, HTML, CSS, OOP, Node.js, MongoDB, Webpack, and Git. My solid

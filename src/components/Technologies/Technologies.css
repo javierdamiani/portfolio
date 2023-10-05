@@ -2,13 +2,28 @@
   width: 80%;
   margin: 0 auto;
   display: flex;
-  flex-wrap: wrap; /* Permitir que los elementos hagan wrap en resoluciones más pequeñas */
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.technologies__title {
+  color: white;
+  font-family: 'Ubuntu';
+}
+
+.technologies__container {
+  /**border: 1px solid red;**/
+  display: flex;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
 
 .technologies__logo {
-  padding: 15px; /* Espaciado uniforme entre los logos */
-  max-height: 48px; /* Tamaño máximo de los logos */
-  margin: 0 20px; /* Espacio horizontal entre los logos */
+  padding: 15px;
+  max-height: 48px;
+  margin: 0 20px;
 }
