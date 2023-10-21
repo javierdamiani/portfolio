@@ -4,7 +4,7 @@ import './Header.css';
 function Header() {
   const screenWidth = window.innerWidth;
   const CV_URL =
-    'https://drive.google.com/file/d/14m-A3_rNaaf6f8BhweCsV497_3Be50GH/view?usp=sharing';
+    'https://drive.google.com/file/d/1BDDo_9Y_b5sne-AQ8Cwsae94aY30sNsO/view?usp=sharing';
 
   function scrollToProjects() {
     let top = 600;

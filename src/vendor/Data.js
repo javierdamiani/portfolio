@@ -28,7 +28,7 @@ const Data = [
     img: aroundUsImg,
     name: 'Around the U.S.',
     description:
-      'My project, a coding masterpiece, allows you to register, log in, post, and delete photos effortlessly. Experience the seamless functionality of this web application',
+      'My fullstack project, a coding masterpiece, offers a seamless experience for user registration, login, photo posting, and deletion. Explore the effortless functionality of this comprehensive web application',
     link: 'https://github.com/javierdamiani/react-around-api-full_es',
     preview: 'https://javierdamiani.chickenkiller.com/signin',
     id: '3',
@@ -59,6 +59,13 @@ const Data = [
     link: 'https://github.com/javierdamiani/portfolio',
     preview: 'https://javierdamiani.com/',
     id: '6',
+  },
+  {
+    name: 'Bookbot',
+    description:
+      "BookBot is a simple Python tool that analyzes a text file and generates a report with statistics about the file's content, including the word count and the frequency of each letter.",
+    link: 'https://github.com/javierdamiani/bookbot',
+    id: '7',
   },
 ];
 
