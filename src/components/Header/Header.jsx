@@ -1,10 +1,9 @@
-import React from 'react';
-import './Header.css';
+import React from "react";
+import "./Header.css";
 
 function Header() {
   const screenWidth = window.innerWidth;
-  const CV_URL =
-    'https://drive.google.com/file/d/1BDDo_9Y_b5sne-AQ8Cwsae94aY30sNsO/view?usp=sharing';
+  const CV_URL = "https://drive.google.com/file/d/1BDDo_9Y_b5sne-AQ8Cwsae94aY30sNsO/view?usp=sharing";
 
   function scrollToProjects() {
     let top = 600;
@@ -17,37 +16,28 @@ function Header() {
 
     window.scrollTo({
       top: top,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   }
 
   function scrollToContact() {
     window.scrollTo({
       top: 5000,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   }
 
   return (
     <>
-      <header className='header'>
-        <div className='header__buttons'>
-          <a
-            href={CV_URL}
-            className='header__button header__button-cv'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
+      <header className="header">
+        <div className="header__buttons">
+          <a href={CV_URL} className="header__button header__button-cv" target="_blank" rel="noopener noreferrer">
             Download my CV
-            <span className='button-text'>
-              It's free
-              <div className='arrow-down'></div>
-            </span>
           </a>
-          <button className='header__button' onClick={scrollToProjects}>
+          <button className="header__button" onClick={scrollToProjects}>
             Projects
           </button>
-          <button className='header__button' onClick={scrollToContact}>
+          <button className="header__button" onClick={scrollToContact}>
             Contact
           </button>
         </div>
