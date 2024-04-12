@@ -3,7 +3,7 @@ import "./Header.css";
 
 function Header() {
   const screenWidth = window.innerWidth;
-  const CV_URL = "https://drive.google.com/file/d/1BDDo_9Y_b5sne-AQ8Cwsae94aY30sNsO/view?usp=sharing";
+  const CV_URL = "https://drive.google.com/file/d/1POac2r27du2rEkEG5H1HOpvPF5ZJzXbv/view?usp=sharing";
 
   function scrollToProjects() {
     let top = 600;
