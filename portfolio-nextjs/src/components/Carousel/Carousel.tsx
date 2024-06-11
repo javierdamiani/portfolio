@@ -1,6 +1,14 @@
 import React from "react";
 
-function Carousel({ img1, img2, img3, img4, img5 }) {
+interface CarouselProps {
+	img1: string;
+	img2: string;
+	img3: string;
+	img4: string;
+	img5: string;
+}
+
+function Carousel({ img1, img2, img3, img4, img5 }: CarouselProps) {
 	return (
 		<div>
 			<div
@@ -18,7 +26,9 @@ function Carousel({ img1, img2, img3, img4, img5 }) {
 						<img
 							src={img1}
 							className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-							alt={img1.title}
+							alt=""
+							width={500}
+							height={500}
 						/>
 					</div>
 					{/* <!-- Item 2 --> */}
@@ -29,7 +39,9 @@ function Carousel({ img1, img2, img3, img4, img5 }) {
 						<img
 							src={img2}
 							className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-							alt={img2.title}
+							alt=""
+							width={500}
+							height={500}
 						/>
 					</div>
 					{/* <!-- Item 3 --> */}
@@ -40,7 +52,9 @@ function Carousel({ img1, img2, img3, img4, img5 }) {
 						<img
 							src={img3}
 							className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-							alt={img3.title}
+							alt=""
+							width={500}
+							height={500}
 						/>
 					</div>
 					{/* <!-- Item 4 --> */}
@@ -51,7 +65,9 @@ function Carousel({ img1, img2, img3, img4, img5 }) {
 						<img
 							src={img4}
 							className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-							alt={img4.title}
+							alt=""
+							width={500}
+							height={500}
 						/>
 					</div>
 					{/* <!-- Item 5 --> */}
@@ -62,7 +78,9 @@ function Carousel({ img1, img2, img3, img4, img5 }) {
 						<img
 							src={img5}
 							className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-							alt={img5.title}
+							alt=""
+							width={500}
+							height={500}
 						/>
 					</div>
 				</div>
@@ -154,7 +172,6 @@ function Carousel({ img1, img2, img3, img4, img5 }) {
 					</span>
 				</button>
 			</div>
-			;
 		</div>
 	);
 }
