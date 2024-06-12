@@ -7,9 +7,8 @@ import Link from "next/link";
 const Links = () => {
 	return (
 		<>
-			<Link href="/about">About</Link>
 			<Link href="/projects">Projects</Link>
-			<Link href="/contact">Contact</Link>
+			<Link href="mailto:javierdamiani74@gmail.com">Contact</Link>
 		</>
 	);
 };

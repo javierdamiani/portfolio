@@ -12,7 +12,6 @@ export default function Home() {
 			<Projects />
 			<Experience />
 			<VideoCV />
-			<h1>Hola mundo!</h1>
 		</main>
 	);
 }

@@ -22,7 +22,7 @@ function About() {
 					<Lego /> <span className="text-lg">About me</span>
 				</div>
 				<h3 className="text-2xl font-bold">Meet Javier Damiani</h3>
-				<p className="text-sm">
+				<p className="text-sm md:text-lg">
 					I'm a Fullstack Web Developer based in Lima, Perú 🇵🇪. Proficient in
 					the technologies shown below. Completed coursework for a master's
 					degree in Business Administration. When not coding, I enjoy Football

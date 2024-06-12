@@ -2,6 +2,7 @@
 import React from "react";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 import { Button } from "@mui/material";
+import Social from "../Social/Social";
 
 function Description() {
 	const [text] = useTypewriter({
@@ -42,6 +43,7 @@ function Description() {
 					Download my CV
 				</Button>
 			</div>
+			<Social />
 		</div>
 	);
 }

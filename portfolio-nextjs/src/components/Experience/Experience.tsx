@@ -2,7 +2,7 @@ import React from "react";
 
 function Experience() {
 	return (
-		<div className="display flex flex-col px-8 py-10 gap-4">
+		<div className="display flex flex-col px-8 py-10 gap-4  max-w-[1024px]">
 			<h2 className="font-bold">Experience</h2>
 			<ol className="relative border-s border-gray-200 dark:border-gray-700">
 				<li className="mb-10 ms-4">
@@ -14,13 +14,13 @@ function Experience() {
 						[Academic] FullStack Developer - NoCountry
 					</h3>
 					<p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
-						Participé en una simulación laboral en No Country, donde colaboré en
-						un equipo multidisciplinario para desarrollar un proyecto de
-						eCommerce de cómics. Aprendí a trabajar con tecnologías como React,
-						Node.js, MongoDB y Cloudinary, contribuyendo al diseño y desarrollo
-						del sitio. Además, adquirí habilidades en metodologías ágiles,
-						comunicación efectiva y trabajo en equipo en un entorno de
-						aprendizaje práctico.
+						I participated in a work simulation at NoCountry, where I
+						collaborated in a multidisciplinary team to develop a comic
+						eCommerce project. I learned to work with technologies like React,
+						Node.js, MongoDB, and Cloudinary, contributing to the design and
+						development of the site. Additionally, I gained skills in agile
+						methodologies, effective communication, and teamwork in a practical
+						learning environment.
 					</p>
 					{/* <a
 						href="#"
@@ -53,20 +53,19 @@ function Experience() {
 						[Internship] Frontend Developer - BeActtive
 					</h3>
 					<p className="text-base font-normal text-gray-500 dark:text-gray-400">
-						Durante mi experiencia en BeActtive, asumí un rol destacado como
-						Practicante Web Developer. Mi contribución fue clave en la
-						refactorización del código utilizando NextJS y Typescript, logrando
-						mejoras significativas en la eficiencia y legibilidad del código
-						base. Además, lideré el equipo técnico 3, donde nos enfocamos en la
-						traducción de la página web utilizando el framework i18next i18n.
-						Este proyecto me permitió investigar y seleccionar la mejor
-						tecnología para llevar a cabo la traducción de manera eficiente.
-						Participé activamente en reuniones estratégicas semanales, donde
-						aporté ideas innovadoras y fortalecí mis habilidades en gestión de
-						proyectos y trabajo en equipo. Estas experiencias me han preparado
-						para asumir responsabilidades desafiantes en entornos dinámicos y de
-						rápido crecimiento, y estoy emocionado por aplicar estas habilidades
-						en futuros proyectos.
+						During my time at BeActtive, I took on a prominent role as a Web
+						Development Intern. My contribution was pivotal in refactoring the
+						code using NextJS and Typescript, achieving significant improvements
+						in codebase efficiency and readability. Moreover, I led technical
+						team 3, where we focused on translating the website using the
+						i18next i18n framework. This project allowed me to research and
+						select the best technology for efficient translation implementation.
+						I actively participated in weekly strategic meetings, contributing
+						innovative ideas and strengthening my project management and
+						teamwork skills. These experiences have prepared me to take on
+						challenging responsibilities in dynamic and fast-growing
+						environments, and I am excited to apply these skills to future
+						projects.
 					</p>
 				</li>
 				<li className="ms-4">
@@ -75,22 +74,21 @@ function Experience() {
 						Mar 2022 - Aug 2022
 					</time>
 					<h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-						Administrador general - BioSelva S.A.C.
+						General Manager - BioSelva S.A.C.
 					</h3>
 					<p className="text-base font-normal text-gray-500 dark:text-gray-400">
-						Durante mi tiempo en el cargo, me desempeñé como responsable de
-						facturación y supervisión del despacho de productos en Lima y
-						provincias. Mantuve una coordinación constante con los proveedores y
-						estuve a cargo del personal, supervisando tanto el área logística
-						como productiva. También me encargué de la renovación de licencias
-						de seguridad y funcionamiento, así como de la trazabilidad de los
-						productos. Destacadamente, durante este periodo, recibimos la visita
-						y supervisión anual de una importante cadena de supermercados del
-						país, a la cual suministrábamos productos. Gracias a las gestiones
-						realizadas durante mi gestión como administrador y encargado
-						principal de la planta de producción, aprobamos satisfactoriamente
-						esta evaluación, demostrando nuestro compromiso con la excelencia y
-						el cumplimiento normativo.
+						During my tenure in the position, I served as responsible for
+						billing and overseeing product dispatch in Lima and provinces. I
+						maintained constant coordination with suppliers and was in charge of
+						personnel, supervising both the logistics and production areas. I
+						also handled the renewal of security and operating licenses, as well
+						as product traceability. Notably, during this period, we received
+						the annual visit and supervision of a major supermarket chain in the
+						country, to which we supplied products. Thanks to the efforts made
+						during my tenure as manager and main person in charge of the
+						production plant, we successfully passed this evaluation,
+						demonstrating our commitment to excellence and regulatory
+						compliance.
 					</p>
 				</li>
 			</ol>

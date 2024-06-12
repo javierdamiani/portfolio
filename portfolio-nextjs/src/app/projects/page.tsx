@@ -4,7 +4,7 @@ import ProjectCard from "@/components/ProjectCard/ProjectCard";
 
 function ProjectsPage() {
 	return (
-		<div className="container mx-auto flex flex-wrap justify-between gap-y-10 my-14">
+		<div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4  justify-between gap-y-10 my-14">
 			{project_info.map((project) => (
 				<ProjectCard
 					key={project.title}

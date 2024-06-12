@@ -5,7 +5,7 @@ export const experienceData = [
 		company: "No Country · Apprenticeship",
 		location: "Remote",
 		description: `
-      Participé en una simulación laboral en No Country, donde colaboré en un equipo multidisciplinario para desarrollar un proyecto de eCommerce de cómics. Aprendí a trabajar con tecnologías como React, Node.js, MongoDB y Cloudinary, contribuyendo al diseño y desarrollo del sitio. Además, adquirí habilidades en metodologías ágiles, comunicación efectiva y trabajo en equipo en un entorno de aprendizaje práctico.
+		I participated in a work simulation at NoCountry, where I collaborated in a multidisciplinary team to develop a comic eCommerce project. I learned to work with technologies like React, Node.js, MongoDB, and Cloudinary, contributing to the design and development of the site. Additionally, I gained skills in agile methodologies, effective communication, and teamwork in a practical learning environment.
     `,
 		skills:
 			"HTML5 · Node.js · Express.js · MongoDB · React.js · JavaScript · CSS3 · Trabajo en equipo",
@@ -16,9 +16,7 @@ export const experienceData = [
 		company: "BeActtive · Internship",
 		location: "Palma de Mallorca y alrededores · Remote",
 		description: `
-      Durante mi experiencia en BeActtive, asumí un rol destacado como Practicante Web Developer. Mi contribución fue clave en la refactorización del código utilizando NextJS y Typescript, logrando mejoras significativas en la eficiencia y legibilidad del código base. Además, lideré el equipo técnico 3, donde nos enfocamos en la traducción de la página web utilizando el framework i18next i18n. Este proyecto me permitió investigar y seleccionar la mejor tecnología para llevar a cabo la traducción de manera eficiente.
-      
-      Participé activamente en reuniones estratégicas semanales, donde aporté ideas innovadoras y fortalecí mis habilidades en gestión de proyectos y trabajo en equipo. Estas experiencias me han preparado para asumir responsabilidades desafiantes en entornos dinámicos y de rápido crecimiento, y estoy emocionado por aplicar estas habilidades en futuros proyectos.
+		During my time at BeActtive, I took on a prominent role as a Web Development Intern. My contribution was pivotal in refactoring the code using NextJS and Typescript, achieving significant improvements in codebase efficiency and readability. Moreover, I led technical team 3, where we focused on translating the website using the i18next i18n framework. This project allowed me to research and select the best technology for efficient translation implementation. I actively participated in weekly strategic meetings, contributing innovative ideas and strengthening my project management and teamwork skills. These experiences have prepared me to take on challenging responsibilities in dynamic and fast-growing environments, and I am excited to apply these skills to future projects.
     `,
 		skills:
 			"JavaScript · Desarrollo front end · Trabajo en equipo · React.js · Comunicación interpersonal · Inglés",

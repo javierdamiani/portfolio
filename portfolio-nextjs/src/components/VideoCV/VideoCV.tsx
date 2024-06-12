@@ -3,8 +3,8 @@ import React from "react";
 const VideoCV = () => {
 	return (
 		<div className="w-full flex flex-col items-center">
-			<h3>This is me</h3>
-			<div className="relative overflow-hidden pb-[40%] mx-auto w-full max-w-[800px]">
+			<h3 className="text-xl font-bold">This is me 👋👨🏻‍💻</h3>
+			<div className="relative overflow-hidden pb-[30%] mx-auto w-full max-w-[800px]">
 				<iframe
 					src="https://player.vimeo.com/video/957347553?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
 					allow="fullscreen; picture-in-picture; clipboard-write"
