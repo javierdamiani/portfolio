@@ -1,11 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import ProjectCard from "../ProjectCard/ProjectCard";
 import { project_info } from "@/utils/projects_info";
 
 function Projects() {
-	useEffect(() => {
-		console.log(project_info, "proyectos");
-	}, []);
 	return (
 		<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4">
 			{project_info.slice(0, 3).map((project) => (

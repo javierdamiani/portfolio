@@ -22,20 +22,12 @@ function ProjectCard({
 	img4,
 	img5,
 }: ProjectCardProps) {
-	console.log(img1, "card");
+	console.log(img2, "card");
 
 	return (
-		<div className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-			<a
-				href="#"
-				className=""
-			>
-				{/* <img
-					src={img}
-					alt=""
-					className="w-full rounded-t-lg "
-				/> */}
-				<div className="w-full rounded-t-lg">
+		<div className="flex flex-col items-start bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+			<div className="">
+				<div className="relative h-full top-0 w-full rounded-t-lg">
 					<Carousel
 						img1={img1}
 						img2={img2}
@@ -52,7 +44,7 @@ function ProjectCard({
 						{description}
 					</p>
 				</div>
-			</a>
+			</div>
 		</div>
 	);
 }
