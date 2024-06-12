@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+			{/* <script src="../node_modules/flowbite/dist/flowbite.min.js"></script> */}
 			<body className={inter.className}>
 				<Header />
 				{children}
