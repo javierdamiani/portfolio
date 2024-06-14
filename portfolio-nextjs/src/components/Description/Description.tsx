@@ -35,13 +35,18 @@ function Description() {
 					Porres University enable me to integrate technical skills with
 					business acumen.
 				</p>
-				<Button
-					variant="contained"
-					className="h-12 w-48"
-					color="success"
+				<a
+					href="https://drive.google.com/file/d/1POac2r27du2rEkEG5H1HOpvPF5ZJzXbv/view?usp=sharing"
+					target="_blank"
 				>
-					Download my CV
-				</Button>
+					<Button
+						variant="contained"
+						className="h-12 w-48"
+						color="success"
+					>
+						Download my CV
+					</Button>
+				</a>
 			</div>
 			<Social />
 		</div>

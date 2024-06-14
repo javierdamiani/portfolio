@@ -12,6 +12,12 @@ const VideoCV = () => {
 					title="Video_CV"
 				></iframe>
 			</div>
+			<div className="w-full">
+				<p className="text-xs text-center text-gray-300">
+					Music by: Bensound.com/royalty-free-music
+					<span>License code: HP1LGDIHFN1EXVFY</span>
+				</p>
+			</div>
 		</div>
 	);
 };
