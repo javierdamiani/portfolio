@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0b60a391-451b-4121-821f-8ec580833324" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nojekyll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/.eslintrc.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/next.config.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/postcss.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/public/images/call-me.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/public/images/hello.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/public/images/me.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/public/images/projects/around/around1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/public/images/projects/around/around2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/public/images/projects/around/around3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/public/images/projects/around/around4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/public/images/projects/comic_nest/comic1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/public/images/projects/comic_nest/comic2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/public/images/projects/comic_nest/comic3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/public/images/projects/comic_nest/comic4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/public/images/projects/comic_nest/comic5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/public/images/projects/fifagames.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/public/images/projects/learn/learn1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/public/images/projects/learn/learn2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/public/images/projects/learn/learn3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/public/images/projects/learn/learn4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/public/images/projects/learn/learn5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/public/images/projects/noa/noa1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/public/images/projects/noa/noa2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/public/images/projects/noa/noa3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/public/images/projects/noa/noa4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/public/images/projects/noa/noa5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/public/images/projects/pokecats/cats1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/public/images/projects/pokecats/cats2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/public/images/projects/pokecats/cats3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/public/images/projects/pokecats/cats4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/public/images/projects/pokecats/cats5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/public/next.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/public/vercel.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/src/app/globals.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/src/app/layout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/src/app/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/src/app/projects/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/src/components/About/About.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/src/components/Carousel/Carousel.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/src/components/Cover/Cover.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/src/components/Description/Description.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/src/components/Experience/Experience.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/src/components/Footer/Footer.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/src/components/Header/Header.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/src/components/Logo/Logo.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/src/components/Nav/Nav.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/src/components/ProjectCard/ProjectCard.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/src/components/Projects/Projects.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/src/components/Social/Social.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/src/components/VideoCV/VideoCV.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/src/icons/CssLogo.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/src/icons/GitLogo.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/src/icons/GithubLogo.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/src/icons/HtmlLogo.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/src/icons/JavaScriptLogo.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/src/icons/Lego.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/src/icons/LinkedInLogo.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/src/icons/Menu.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/src/icons/MongoDBLogo.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/src/icons/NodeJSLogo.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/src/icons/ReactLogo.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/src/icons/TypescriptLogo.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/src/icons/WebpackLogo.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/src/utils/experience_info.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/src/utils/header_info.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/src/utils/projects_info.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/src/utils/utils.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/tailwind.config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portfolio-nextjs/video.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/CV - Proof of Soft Skills -Damiani Javier ES.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/About/About.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/About/About.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Card/Card.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Card/Card.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Contact/Contact.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Contact/Contact.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main/Main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main/Main.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Projects/Projects.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Projects/Projects.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Social/Social.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Social/Social.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Technologies/Technologies.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Technologies/Technologies.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/CCB784F9-FE06-46AF-8907-8C59C1D60629_1_105_c.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/ComicNest_x3.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Copia de chrome-capture-2023-8-16.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Copia de icons8-github.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/FIRMA-JD.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/IMG_4404.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Octicons-mark-github.svg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/__logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/chrome-capture-2023-8-14.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/chrome-capture-2023-8-16.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/dePatriaAPatria.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/firstProject.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/icons8-css3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/icons8-flecha-adelante-30.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/icons8-github.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/icons8-html5.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/icons8-javascript.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/icons8-linkedin.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/icons8-nodejs.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/icons8-pdf.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/icons8-python.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/icons8-react-native.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/icons8-webpack.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/mongodb-icon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/pdf-svgrepo-com.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/portfolio.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/profile.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pdf/Javier Damiani_CV.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reportWebVitals.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/setupTests.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vendor/Data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vendor/fonts/Ubuntu-Bold.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vendor/normalize.css" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="nextjs-migration" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="3122zW5cVAN509donrXzaY6528O" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "refactoring",
+    "js.debugger.nextJs.config.created.client": "true",
+    "js.debugger.nextJs.config.created.server": "true",
+    "last_opened_file_path": "/Users/javierdamiani/workspace/portfolio",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.Next.js: server-side.executor": "Run",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.Next.js: server-side">
+    <configuration name="Next.js: debug client-side" type="JavascriptDebugType" uri="http://localhost:3000/">
+      <method v="2" />
+    </configuration>
+    <configuration name="Next.js: server-side" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-e03c56caf84a-JavaScript-WS-252.23892.411" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0b60a391-451b-4121-821f-8ec580833324" name="Changes" comment="" />
+      <created>1754708109172</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1754708109172</updated>
+      <workItem from="1754708110473" duration="694000" />
+      <workItem from="1754746261743" duration="2100000" />
+      <workItem from="1754754271969" duration="310000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
