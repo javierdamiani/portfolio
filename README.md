@@ -79,7 +79,8 @@ Run `npm run verify` before pushing.
   ```
 
 - **GitHub Pages**: pushing to `public` runs `deploy-pages.yml` (`withastro/action` + `actions/deploy-pages`). In
-  the repo settings set _Pages → Source_ to **GitHub Actions** and configure the custom domain `javierdamiani.com`.
+  the repo settings set _Pages → Source_ to **GitHub Actions**; `public/CNAME` already carries the custom domain
+  `javierdamiani.com` (point the DNS to GitHub Pages or remove the file if you host elsewhere).
 - **Alternative (Vercel / Netlify)**: point the production branch to `public`, build command `npm run build`,
   output directory `dist`, Node 24.
 
