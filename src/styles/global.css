@@ -1,0 +1,358 @@
+/*
+ * Javier's Space — the ONE stylesheet (Tailwind CSS 4, strict mode; see .primos/SPEC.md §3).
+ * Tokens extracted from the prototype cascade: styles.css + v5.css (v5 wins) + arcade.css.
+ * No apply-directives, no other stylesheets, no Tailwind JS config.
+ */
+@import 'tailwindcss';
+
+/* Wallpaper variants: driven by data-wallpaper on <html> (light is the default, no variant). */
+@custom-variant peach (&:where([data-wallpaper="peach"], [data-wallpaper="peach"] *));
+@custom-variant night (&:where([data-wallpaper="night"], [data-wallpaper="night"] *));
+
+@theme {
+  /* ---------- Typography (system stacks only, zero web fonts) ---------- */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+  --font-display: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* ---------- Breakpoints (replace the prototype's 390/760/900/1120 max-width queries) ---------- */
+  --breakpoint-*: initial;
+  --breakpoint-xs: 391px; /* max-xs: = ≤390px (small phones) */
+  --breakpoint-sm: 761px; /* max-sm: = ≤760px (mobile layout) */
+  --breakpoint-md: 901px; /* max-md: = ≤900px (narrow desktop) */
+  --breakpoint-lg: 1121px; /* max-lg: = ≤1120px (small laptop) */
+
+  /* ---------- Core palette ---------- */
+  --color-wall: #e7e8ea; /* desktop wallpaper, light (default) */
+  --color-wall-peach: #e5e4e1; /* desktop wallpaper, peach */
+  --color-wall-night: #303239; /* desktop wallpaper, night */
+  --color-ink: #222327; /* body text */
+  --color-ink-strong: #202126; /* view h2 headings */
+  --color-muted: #74777d; /* secondary text */
+  --color-line: #e4e4e6; /* default hairline */
+  --color-blue: #3567a5; /* links / hover accent (contact email hover) */
+  --color-focus: #5274a4; /* focus-visible outline */
+  --color-selection: #b0d2ff; /* ::selection background */
+  --color-selection-ink: #172b44; /* ::selection text */
+  --color-accent-green: #46836b; /* availability dot, hello dot */
+  --color-night-ink: #eff5f9; /* intro / shortcut text over the night wallpaper */
+
+  /* ---------- Menubar ---------- */
+  --color-menubar: #f7f7f8; /* menubar background (light & peach) */
+  --color-menubar-night: #26282e; /* menubar background (night) */
+  --color-menubar-border: #dbdcde; /* menubar bottom border */
+  --color-menubar-ink: #34363a; /* menubar text */
+  --color-menubar-ink-night: #f5f5f6; /* menubar text (night) */
+  --color-menubar-item: #52545a; /* File/Edit-like desktop menu buttons */
+  --color-menubar-hover: #e8e9ea; /* hover background on menubar controls */
+  --color-availability: #6b6e74; /* "Available for remote roles" label */
+
+  /* ---------- Wallpaper intro & desktop ---------- */
+  --color-intro-hello: #6c7076; /* "Hello, I'm" */
+  --color-intro-title: #303237; /* big h1 name */
+  --color-intro-role: #4d5058; /* role line */
+  --color-intro-location: #76797f; /* location line */
+  --color-intro-pin: #71747b; /* location pin glyph */
+  --color-shortcut-ink: #464951; /* desktop shortcut label */
+  --color-shortcut-me: #f9f9f9; /* "jd" shortcut tile */
+  --color-shortcut-me-ink: #3d424b; /* "jd" shortcut text */
+  --color-shortcut-terminal: #2b2d33; /* terminal shortcut tile */
+  --color-shortcut-terminal-ink: #e6f4eb; /* terminal shortcut glyph */
+  --color-signature: #989a9e; /* bottom-left desktop signature */
+
+  /* ---------- Dock ---------- */
+  --color-dock: #f6f6f8; /* dock background */
+  --color-dock-border: #d1d3d7; /* dock border */
+  --color-dock-rule: rgb(91 111 126 / 0.2); /* vertical divider inside the dock */
+  --color-dock-indicator: #41515d; /* "app open" dot under icons */
+  --color-dock-finder-light: #94bbdf; /* finder icon left half */
+  --color-dock-finder-dark: #5e96cd; /* finder icon right half */
+  --color-dock-finder-face: #1c4473; /* finder face outline */
+  --color-dock-finder-eye: #194b7e; /* finder eyes and smile */
+  --color-dock-about: #ffffff; /* about icon tile */
+  --color-dock-about-ink: #303237; /* about icon text */
+  --color-dock-journey: #e5ddd0; /* journey icon tile */
+  --color-dock-mail: #5c95ce; /* mail icon tile */
+  --color-dock-quick: #e9ecf1; /* quick look icon tile */
+  --color-dock-terminal: #2b2d33; /* terminal icon tile */
+  --color-dock-terminal-ink: #e3e7e7; /* terminal icon glyph */
+  --color-dock-arcade: #454951; /* arcade icon tile */
+
+  /* ---------- Window chrome ---------- */
+  --color-window: #ffffff; /* window / panel background */
+  --color-window-border: #bfc1c6; /* window outer border */
+  --color-toolbar: #fafafb; /* window toolbar background */
+  --color-toolbar-border: #e5e5e7; /* toolbar bottom border */
+  --color-window-title: #44474b; /* centered window title */
+  --color-tool: #70737b; /* toolbar icon buttons */
+  --color-tool-hover: #ebeced; /* toolbar icon hover background */
+  --color-tool-hover-ink: #34363a; /* toolbar icon hover color */
+  --color-tool-divider: #e1e5eb; /* divider between toolbar tools */
+  --color-traffic-close: #ff615b; /* red traffic light */
+  --color-traffic-min: #ffbd2d; /* yellow traffic light */
+  --color-traffic-max: #28c840; /* green traffic light */
+  --color-traffic-glyph: #5e5e5e; /* glyphs inside traffic lights on hover */
+  --color-resize: #b6c1c8; /* bottom-right resize grip */
+  --color-scrollbar: #cbccd0; /* panel scrollbar thumb */
+  --color-status: #fafafa; /* bottom status bar background */
+  --color-status-border: #ececee; /* status bar top border */
+  --color-status-ink: #979aa0; /* status bar text */
+  --color-toast: #243441; /* toast background */
+
+  /* ---------- Sidebar ---------- */
+  --color-sidebar: #f5f5f6; /* sidebar background */
+  --color-sidebar-border: #e5e5e6; /* sidebar right border */
+  --color-sidebar-caption: #91949a; /* "Favorites" caption */
+  --color-sidebar-ink: #50525a; /* sidebar button text */
+  --color-sidebar-hover: #eaeaed; /* sidebar button hover */
+  --color-sidebar-active: #dfe5ec; /* active sidebar button background */
+  --color-sidebar-active-ink: #2d4e72; /* active sidebar button text */
+  --color-sidebar-dot: #40ac82; /* "currently building" dot */
+  --color-sidebar-rule: #e4e9ee; /* sidebar bottom block top border */
+  --color-avatar: #e8ddd1; /* sidebar avatar tile */
+  --color-avatar-ink: #36424c; /* sidebar avatar text */
+  --color-sidebar-small: #91a0aa; /* sidebar bottom small text */
+
+  /* ---------- Views (shared) ---------- */
+  --color-eyebrow: #777b82; /* uppercase eyebrow above titles */
+  --color-lead: #71757d; /* lead paragraph under h2 */
+  --color-pill: #f4f4f5; /* small pill background */
+  --color-pill-ink: #8b8e94; /* small pill text */
+  --color-section: #777b83; /* section headings (Featured, More projects) */
+  --color-tail: #a0a1a5; /* trailing hint text at the end of views */
+  --color-input-border: #dedfe2; /* search input border */
+  --color-input-ink: #2a2c30; /* search input text */
+  --color-tag: #f7f7f8; /* tag chip background */
+  --color-tag-border: #e2e3e5; /* tag chip border */
+  --color-tag-ink: #666a71; /* tag chip text */
+  --color-button: #30333a; /* primary button */
+  --color-button-hover: #454950; /* primary button hover */
+  --color-soft-border: #e0e7ec; /* soft link border */
+  --color-soft-hover: #f2f6f9; /* soft link hover background */
+
+  /* ---------- Projects ---------- */
+  --color-hero: #292c33; /* featured hero card */
+  --color-hero-hover: #343840; /* featured hero hover */
+  --color-hero-mini: #b8bbc1; /* hero kicker */
+  --color-hero-ink: #c2c5ca; /* hero secondary text */
+  --color-hero-mark: #494d56; /* big monogram on the hero right side */
+  --color-hero-mark-accent: #989da5; /* accent inside the hero monogram */
+  --color-hero-cta-rule: #656971; /* rule above the hero CTA */
+  --color-hero-cta: #e6e8eb; /* hero CTA text */
+  --color-card: #f8f8f9; /* project card background */
+  --color-card-hover: #f3f3f4; /* project card hover background */
+  --color-card-border: #e4e5e7; /* card / row / overview border */
+  --color-card-border-hover: #b8bbc0; /* card / row hover border */
+  --color-card-mini: #898c91; /* card kicker */
+  --color-card-title: #292c31; /* card title */
+  --color-card-desc: #72757c; /* card description */
+  --color-card-open: #868991; /* card corner arrow */
+  --color-row-ink: #3c4046; /* project row text */
+  --color-row-mono: #eff0f1; /* project row monogram tile */
+  --color-row-mono-ink: #5b5e64; /* project row monogram text */
+  --color-row-small: #8b8e94; /* project row secondary line */
+
+  /* ---------- Project detail ---------- */
+  --color-detail-cover: #ebedef; /* neutral detail cover (v5) */
+  --color-detail-cover-ink: #3b3e44; /* detail cover monogram */
+  --color-detail-kicker: #777b81; /* detail kicker line */
+  --color-detail-copy: #63727e; /* detail description paragraphs */
+  --color-detail-back: #4080c2; /* "All projects" back link */
+  --color-detail-link: #253e49; /* "Visit website" button */
+  --color-detail-link-hover: #37606f; /* "Visit website" hover */
+
+  /* ---------- Cover tones (one per CoverTone; bg + ink + accent) ---------- */
+  --color-cover-betsell: #253e49; /* BetSell deep teal */
+  --color-cover-betsell-ink: #ffffff; /* BetSell text */
+  --color-cover-uc: #f6e5dc; /* Universidad Continental card */
+  --color-cover-uc-ink: #803a36; /* UC text */
+  --color-cover-uc-deep: #904a45; /* UC detail cover */
+  --color-cover-noa: #e6e5f4; /* Never One Alone card */
+  --color-cover-noa-ink: #4d5379; /* NOA text */
+  --color-cover-noa-deep: #6e6e9d; /* NOA detail cover */
+  --color-cover-comic: #f2eddf; /* Comic Nest card */
+  --color-cover-comic-ink: #4d564e; /* Comic Nest text */
+  --color-cover-comic-deep: #586f55; /* Comic Nest detail cover */
+  --color-cover-pokecats: #f4e9d9; /* Pokecats (new, not in prototype) */
+  --color-cover-pokecats-ink: #7a5a2e; /* Pokecats text */
+  --color-cover-fifa: #e2efe4; /* Dentro del terreno (new) */
+  --color-cover-fifa-ink: #2f5d3d; /* Dentro del terreno text */
+  --color-cover-around: #e3ebf4; /* Around the U.S. (new) */
+  --color-cover-around-ink: #34557a; /* Around the U.S. text */
+  --color-cover-learn: #efe6f1; /* Learning to learn (new) */
+  --color-cover-learn-ink: #6a4572; /* Learning to learn text */
+  --color-cover-patria: #f3e3e1; /* De Patria a Patria (new) */
+  --color-cover-patria-ink: #7c3b35; /* De Patria a Patria text */
+  --color-cover-bookbot: #e6e9ec; /* Bookbot (new) */
+  --color-cover-bookbot-ink: #3d4954; /* Bookbot text */
+
+  /* ---------- About / Journey / Contact / Overview ---------- */
+  --color-about-copy: #63676d; /* about paragraphs */
+  --color-about-strong: #373b41; /* emphasized about paragraph */
+  --color-portrait: #f0f0f1; /* portrait frame */
+  --color-portrait-border: #e5e5e7; /* portrait frame border */
+  --color-portrait-ink: #51545a; /* portrait monogram fallback */
+  --color-portrait-note: #8d9096; /* portrait caption */
+  --color-journey-rule: #e6e7e8; /* separator between journey items */
+  --color-journey-date: #8997a1; /* journey date column */
+  --color-journey-org: #3d8a79; /* journey organization */
+  --color-journey-copy: #777a80; /* journey description */
+  --color-now: #e7f5ed; /* "Now" badge background */
+  --color-now-ink: #3b7b60; /* "Now" badge text */
+  --color-contact-email: #25272d; /* big contact email */
+  --color-overview-heading: #777a81; /* overview card heading */
+  --color-overview-copy: #4e5d68; /* overview card text */
+  --color-overview-strong: #263845; /* overview card emphasis */
+
+  /* ---------- Terminal ---------- */
+  --color-terminal: #1c1d21; /* terminal background */
+  --color-terminal-ink: #d3e6d9; /* terminal base text */
+  --color-terminal-intro: #89a298; /* welcome banner */
+  --color-terminal-log: #cbd7d0; /* command output */
+  --color-terminal-strong: #85cbb0; /* highlighted output */
+  --color-terminal-prompt: #8ccfb5; /* "javier@mac ~ %" prompt */
+  --color-terminal-input: #e4eee6; /* typed input + caret */
+  --color-terminal-placeholder: #788e84; /* input placeholder */
+
+  /* ---------- Arcade ---------- */
+  --color-arcade-rule: #dedfe1; /* tabs bottom border */
+  --color-arcade-tab: #909399; /* inactive tab */
+  --color-arcade-tab-active: #24272d; /* active tab text */
+  --color-arcade-tab-bar: #3c444c; /* active tab underline */
+  --color-arcade-title: #262a30; /* game h3 */
+  --color-arcade-copy: #8b8d93; /* game head paragraph */
+  --color-arcade-mode: #f5f5f6; /* mode segmented control bg */
+  --color-arcade-mode-border: #e6e6e8; /* mode segmented control border */
+  --color-arcade-mode-ink: #777a80; /* mode button text */
+  --color-arcade-mode-active: #2b2d32; /* pressed mode button text */
+  --color-xo-board: #e9ebee; /* tic tac toe board frame */
+  --color-xo-ink: #3f474f; /* X marks */
+  --color-xo-o: #a0a7af; /* O marks */
+  --color-xo-won: #dfe6e1; /* winning cell background */
+  --color-xo-won-ink: #476957; /* winning cell mark */
+  --color-xo-hover: #f4f6f8; /* empty cell hover */
+  --color-xo-status: #444951; /* game status line */
+  --color-arcade-dot: #83a18a; /* status / drive indicator dot */
+  --color-arcade-score-rule: #ececef; /* score table rules */
+  --color-arcade-score-label: #858890; /* score labels */
+  --color-arcade-score: #353a40; /* score numbers */
+  --color-arcade-button: #343940; /* arcade primary button */
+  --color-arcade-button-hover: #22272d; /* arcade primary button hover */
+  --color-arcade-text-button: #8a8d94; /* arcade text button */
+  --color-arcade-text-button-hover: #30343a; /* arcade text button hover */
+  --color-arcade-footer-rule: #eeeef0; /* arcade footer rule */
+  --color-arcade-footer: #aaaeb2; /* arcade footer mono text */
+  --color-drive-indicator: #a2a5aa; /* drive mono indicator */
+  --color-drive-screen: #30363d; /* drive canvas frame */
+  --color-drive-screen-border: #d6d8db; /* drive canvas border */
+  --color-drive-overlay: #171c20a8; /* paused / game-over overlay */
+  --color-drive-overlay-button: #f7f7f7; /* overlay button */
+  --color-drive-overlay-button-ink: #292e35; /* overlay button text */
+  --color-drive-overlay-button-hover: #e3e7e9; /* overlay button hover */
+  --color-drive-control: #f7f8f9; /* touch control button */
+  --color-drive-control-border: #dcdfe2; /* touch control border */
+  --color-drive-control-ink: #51565e; /* touch control glyph */
+  --color-drive-control-active: #dfe3e6; /* touch control pressed */
+  --color-drive-score-rule: #dedfe2; /* drive score rules */
+  --color-drive-score-label: #8b8e95; /* drive score labels */
+  --color-drive-score: #292d33; /* drive score numbers */
+  --color-drive-rule: #e9eaec; /* drive instructions rule */
+  --color-drive-copy: #92969b; /* drive hint / instructions */
+  --color-drive-strong: #42474c; /* drive instruction emphasis */
+
+  /* ---------- Radii ---------- */
+  --radius-window: 13px; /* app window (desktop) */
+  --radius-window-mobile: 11px; /* app window top corners on mobile */
+  --radius-dock: 19px; /* dock container */
+  --radius-dock-icon: 12px; /* dock & shortcut icon tiles */
+  --radius-hero: 10px; /* featured hero card */
+  --radius-card: 9px; /* project card, portrait */
+  --radius-row: 8px; /* project row, overview card, detail cover */
+  --radius-control: 7px; /* buttons, inputs, pills */
+
+  /* ---------- Shadows ---------- */
+  --shadow-window: 0 18px 43px #282d352b, 0 1px 5px #282d3516; /* app window */
+  --shadow-dock: 0 5px 18px #00000022; /* dock container */
+  --shadow-dock-icon: 0 1px 3px #00000022; /* dock icon tile */
+  --shadow-shortcut: 0 1px 3px #00000012; /* desktop shortcut tile */
+  --shadow-shortcut-terminal: 0 1px 3px #00000020; /* terminal shortcut tile */
+  --shadow-toast: 0 8px 22px #1b334632; /* toast */
+  --shadow-segment: 0 1px 3px #00000018; /* pressed arcade mode button */
+
+  /* ---------- Motion ---------- */
+  --ease-os: cubic-bezier(0.2, 0.7, 0.2, 1); /* shortcut / dock hover easing */
+  --animate-window-in: window-in 0.15s ease-out; /* window open */
+
+  @keyframes window-in {
+    from {
+      opacity: 0;
+      transform: scale(0.965) translateY(9px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+}
+
+@layer base {
+  html,
+  body {
+    height: 100%;
+  }
+
+  html {
+    background-color: var(--color-wall);
+  }
+
+  html[data-wallpaper='peach'] {
+    background-color: var(--color-wall-peach);
+  }
+
+  html[data-wallpaper='night'] {
+    background-color: var(--color-wall-night);
+  }
+
+  body {
+    margin: 0;
+    background-color: inherit;
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background-color: var(--color-selection);
+    color: var(--color-selection-ink);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  @media print {
+    html,
+    body {
+      height: auto;
+      background: #fff;
+    }
+  }
+}
