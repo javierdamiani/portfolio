@@ -30,7 +30,7 @@ It ships as pre-rendered static HTML with system fonts only and minimal JavaScri
 ## Structure
 
 ```
-.github/workflows/   ci.yml (main) · deploy-pages.yml (public)
+.github/workflows/   ci.yml (main)
 public/              favicon, icons, manifest, robots.txt, cv/*.pdf
 src/
   assets/            memoji + project screenshots (optimized at build time)
@@ -78,11 +78,9 @@ Run `npm run verify` before pushing.
   git checkout main
   ```
 
-- **GitHub Pages**: pushing to `public` runs `deploy-pages.yml` (`withastro/action` + `actions/deploy-pages`). In
-  the repo settings set _Pages → Source_ to **GitHub Actions**; `public/CNAME` already carries the custom domain
-  `javierdamiani.com` (point the DNS to GitHub Pages or remove the file if you host elsewhere).
-- **Alternative (Vercel / Netlify)**: point the production branch to `public`, build command `npm run build`,
-  output directory `dist`, Node 24.
+- **Vercel** (production): the project at vercel.com/javierdamianis-projects/portfolio is connected to this repo
+  with the production branch set to `public`. Every push to `public` deploys to javierdamiani.com; pushes to
+  `main` create preview deployments. Build command `npm run build`, output directory `dist`, framework Astro.
 
 ## Notes
 
