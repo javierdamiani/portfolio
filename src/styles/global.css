@@ -318,6 +318,8 @@
     background-color: inherit;
     color: var(--color-ink);
     font-family: var(--font-sans);
+    /* The prototype has no reset: keep the browser's `normal` leading instead of preflight's 1.5. */
+    line-height: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -349,6 +351,10 @@
   }
 
   @media print {
+    @page {
+      margin: 14mm;
+    }
+
     html,
     body {
       height: auto;

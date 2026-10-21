@@ -1,6 +1,6 @@
 {
   "name": "Javier Damiani",
-  "short_name": "Javier",
+  "short_name": "jd.",
   "description": "Javier Damiani — Frontend Developer. React, TypeScript & the web.",
   "start_url": "/",
   "scope": "/",
@@ -8,8 +8,22 @@
   "background_color": "#e7e8ea",
   "theme_color": "#e7e8ea",
   "icons": [
-    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
-    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
-    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
-  ]
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "lang": "en"
 }

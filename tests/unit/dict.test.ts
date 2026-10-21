@@ -15,6 +15,40 @@ describe('i18n dict', () => {
     }
   });
 
+  it('includes the WP1 keys in both languages', () => {
+    const keys = [
+      'projectsWord',
+      'itemsWord',
+      'archive',
+      'archiveLead',
+      'viewCode',
+      'viewLive',
+      'gallery',
+      'downloadCv',
+      'aboutFacts',
+      'openProject',
+      'aboutFact1',
+      'aboutFact2',
+      'aboutFact3',
+      'aboutFact4',
+    ];
+    for (const lang of ['en', 'es'] as const) {
+      for (const key of keys) {
+        const value = (DICT[lang] as Record<string, string>)[key];
+        expect(value, `${lang}.${key}`).toBeTypeOf('string');
+        expect(value?.trim(), `${lang}.${key}`).not.toBe('');
+      }
+    }
+  });
+
+  it('has no whitespace-only values', () => {
+    for (const lang of ['en', 'es'] as const) {
+      for (const [key, value] of Object.entries(DICT[lang])) {
+        expect(value.trim(), `${lang}.${key}`).not.toBe('');
+      }
+    }
+  });
+
   it('isLang narrows only en/es', () => {
     expect(isLang('en')).toBe(true);
     expect(isLang('es')).toBe(true);

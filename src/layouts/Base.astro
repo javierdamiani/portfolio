@@ -1,22 +1,77 @@
 ---
 import '@/styles/global.css';
+import { SITE } from '@/data/site';
 
 interface Props {
   title?: string;
+  description?: string;
 }
 
-const { title = 'Javier Damiani — Frontend Developer' } = Astro.props;
+const {
+  title = 'Javier Damiani — Personal Space',
+  description = 'Javier Damiani — Frontend developer in Peru. A personal desktop for my work, experience and ideas.',
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site ?? SITE.url).href;
+const ogTitle = 'Javier Damiani — My little corner of the internet';
+const ogDescription = 'An interactive portfolio that feels like a personal computer.';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-wallpaper="light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#e7e8ea" />
+    <meta name="author" content={SITE.name} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:image" content={new URL('/icon-512.png', canonical).href} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={ogDescription} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <script is:inline>
+      try {
+        var w = localStorage.getItem('javier-wallpaper');
+        var legacy = { 0: 'light', 1: 'peach', 2: 'night' };
+        if (w in legacy) w = legacy[w];
+        if (w === 'light' || w === 'peach' || w === 'night') document.documentElement.dataset.wallpaper = w;
+        if (localStorage.getItem('javier-lang') === 'es') document.documentElement.lang = 'es';
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <slot />
+    <noscript>
+      <div class="mx-auto my-10 max-w-[720px] bg-white p-6 text-[16px] text-[#222]">
+        <h1 class="mb-2 text-2xl font-bold">Javier Damiani — Frontend Developer</h1>
+        <p>
+          I create interfaces with React, TypeScript, Astro and modern web tools. Experience at BetSell and
+          Universidad Continental.
+        </p>
+        <p class="mt-2">
+          <a class="underline" href={`mailto:${SITE.email}`}>
+            Email
+          </a>{' '}
+          ·
+          <a class="underline" href={SITE.links.github}>
+            GitHub
+          </a>{' '}
+          ·
+          <a class="underline" href={SITE.links.linkedin}>
+            LinkedIn
+          </a>
+        </p>
+      </div>
+    </noscript>
   </body>
 </html>
