@@ -40,7 +40,7 @@ export default function ArcadeView() {
       <div
         className="mb-[20px] flex border-b border-arcade-rule max-sm:mb-[12px]"
         role="tablist"
-        aria-label="Arcade games"
+        aria-label={l.gamesTabs}
       >
         {(['ttt', 'drive'] as const).map((t, i) => (
           <button

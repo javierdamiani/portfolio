@@ -24,4 +24,12 @@ describe('journey data', () => {
       if (j.link !== undefined) expect(j.link).toMatch(/^https:\/\//);
     }
   });
+
+  it('keeps technical job titles in English in both languages', () => {
+    for (const j of journey) {
+      if (/Developer/.test(j.role.en)) {
+        expect(j.role.es.split(' (')[0], j.org).toBe(j.role.en.split(' (')[0]);
+      }
+    }
+  });
 });

@@ -58,9 +58,18 @@ export function Lead({ children, className }: { children: ReactNode; className?:
   return <p className={cx('m-0 mb-[27px] text-[13px] leading-[1.6] text-lead', className)}>{children}</p>;
 }
 
-export function SectionHeading({ children, className }: { children: ReactNode; className?: string }) {
+/** `.section-heading`. `top` replaces the default margin-top (two `mt-*` classes would race in the cascade). */
+export function SectionHeading({
+  children,
+  className,
+  top = 'mt-[21px]',
+}: {
+  children: ReactNode;
+  className?: string;
+  top?: string;
+}) {
   return (
-    <div className={cx('mt-[21px] mb-2.5 text-[11px] font-[640] tracking-[0.01em] text-section', className)}>
+    <div className={cx(top, 'mb-2.5 text-[11px] font-[640] tracking-[0.01em] text-section', className)}>
       {children}
     </div>
   );

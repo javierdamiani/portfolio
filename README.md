@@ -36,7 +36,7 @@ src/
   assets/            memoji + project screenshots (optimized at build time)
   styles/global.css  the ONLY stylesheet (Tailwind 4 theme + tokens)
   types.ts           shared types
-  data/              site.ts, projects.ts, journey.ts  ← content
+  data/              site.ts, projects.ts, project-images.ts, journey.ts  ← content
   i18n/              dict.ts (UI strings EN/ES), arcade.ts
   lib/               pure logic: storage, windows, terminal, tictactoe, drive
   components/os/     desktop shell (menu bar, dock, windows…)
@@ -59,11 +59,11 @@ tests/e2e/           Playwright
 
 ## Updating content
 
-- Projects: `src/data/projects.ts` (order, kind `hero|card|row|archive`, EN/ES copy, tags, links, screenshots).
+- Projects: `src/data/projects.ts` (order, kind `hero|card|row|archive`, EN/ES copy, tags, links).
 - Timeline: `src/data/journey.ts`. Site-wide info (email, social links, CV paths): `src/data/site.ts`.
 - UI strings: `src/i18n/dict.ts`. `en` and `es` must have the same keys (a unit test checks it). Add keys, never
   rename or remove them. Use `\n` for line breaks.
-- Images: drop them in `src/assets/projects/<project>/` and import them in `projects.ts`; Astro converts them to WebP.
+- Images: drop them in `src/assets/projects/<project>/` and import them in `src/data/project-images.ts` (keyed by project id, with EN/ES alts). Only `index.astro` imports that file, so Astro converts them to WebP at build time and the original PNGs never reach the client.
 - CVs: `public/cv/`.
 
 Run `npm run verify` before pushing.

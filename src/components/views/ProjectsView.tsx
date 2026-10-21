@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useLayoutEffect, useRef } from 'react';
 import { useOs } from '@/components/os/OsContext';
 import { projects } from '@/data/projects';
 import type { Lang, Project } from '@/types';
@@ -14,11 +14,14 @@ import {
   pad2,
 } from '@/components/views/ui';
 
-/** Pure search filter: matches the query against `search`, name and localized label. */
+/** Lowercase and strip diacritics so "educacion" matches "Educación". */
+const fold = (text: string) => text.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase();
+
+/** Pure search filter: matches the query against `search`, name and localized label (case/accent-insensitive). */
 export function filterProjects(list: readonly Project[], query: string, lang: Lang): Project[] {
-  const q = query.trim().toLowerCase();
+  const q = fold(query.trim());
   if (!q) return [...list];
-  return list.filter((p) => `${p.search} ${p.name} ${p.label[lang]}`.toLowerCase().includes(q));
+  return list.filter((p) => fold(`${p.search} ${p.name} ${p.label[lang]}`).includes(q));
 }
 
 /** Uppercase category shown in the card/hero kicker (prototype copy), falling back to the label. */
@@ -31,6 +34,12 @@ const cardTitle = (name: string) => {
   const words = name.split(' ');
   return words.length === 2 ? words.join('\n') : name;
 };
+
+/** `useLayoutEffect` on the client (no scroll flash), plain `useEffect` during SSR. */
+const useIsoLayoutEffect = typeof window === 'undefined' ? useEffect : useLayoutEffect;
+
+/** The window's scrollable panel that hosts this view (see `Window.tsx`). */
+const panelOf = (el: HTMLElement | null) => el?.closest<HTMLElement>('[data-slot="window-panel"]') ?? null;
 
 const focusRing = 'focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-focus';
 
@@ -138,12 +147,34 @@ function Row({
 export default function ProjectsView() {
   const { t, lang, currentProject, setCurrentProject, searchVisible, searchQuery, setSearchQuery } = useOs();
   const inputRef = useRef<HTMLInputElement>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const listScroll = useRef<number | null>(null);
+  const prevProject = useRef(currentProject);
 
   useEffect(() => {
     if (searchVisible) inputRef.current?.focus();
   }, [searchVisible]);
 
-  if (currentProject) return <ProjectDetail />;
+  // Detail opens at the top; going back restores where the list was.
+  useIsoLayoutEffect(() => {
+    const prev = prevProject.current;
+    prevProject.current = currentProject;
+    if (prev === currentProject) return;
+    const panel = panelOf(rootRef.current);
+    if (!panel) return;
+    if (currentProject) panel.scrollTop = 0;
+    else if (listScroll.current !== null) {
+      panel.scrollTop = listScroll.current;
+      listScroll.current = null;
+    }
+  }, [currentProject]);
+
+  if (currentProject)
+    return (
+      <div ref={rootRef} className="contents">
+        <ProjectDetail />
+      </div>
+    );
 
   const visible = filterProjects(projects, searchVisible ? searchQuery : '', lang);
   const of = (kind: Project['kind']) => visible.filter((p) => p.kind === kind);
@@ -151,64 +182,70 @@ export default function ProjectsView() {
   const cards = of('card');
   const rows = of('row');
   const archive = of('archive');
-  const open = (id: string) => () => setCurrentProject(id);
+  const open = (id: string) => () => {
+    // Read before the swap: once the detail renders the browser may already have clamped it.
+    listScroll.current = panelOf(rootRef.current)?.scrollTop ?? null;
+    setCurrentProject(id);
+  };
 
   return (
-    <ViewFrame>
-      <Topline eyebrow={t.folder} pill={`${pad2(projects.length)} ${t.projectsWord}`} />
-      <Title>{t.viewTitle}</Title>
-      <Lead>{t.viewLead}</Lead>
+    <div ref={rootRef} className="contents">
+      <ViewFrame>
+        <Topline eyebrow={t.folder} pill={`${pad2(projects.length)} ${t.projectsWord}`} />
+        <Title>{t.viewTitle}</Title>
+        <Lead>{t.viewLead}</Lead>
 
-      {searchVisible && (
-        <div className="mb-5">
-          <input
-            ref={inputRef}
-            type="search"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            aria-label={t.search}
-            placeholder={t.search}
-            className="w-full rounded-control border border-input-border bg-white px-3 py-2.5 text-[13px] text-input-ink outline-none focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-focus"
-          />
-        </div>
-      )}
-
-      <div className="pb-2">
-        {visible.length === 0 && <p className="m-0 mt-5 text-[12px] text-muted">{t.noProjects}</p>}
-
-        {heroes.length > 0 && (
-          <>
-            <SectionHeading>{t.featured}</SectionHeading>
-            {heroes.map((p) => (
-              <Hero key={p.id} p={p} lang={lang} onOpen={open(p.id)} />
-            ))}
-          </>
-        )}
-
-        {cards.length + rows.length > 0 && <SectionHeading>{t.moreWork}</SectionHeading>}
-        {cards.length > 0 && (
-          <div className="grid grid-cols-2 gap-3 max-sm:gap-2.5 max-xs:grid-cols-1">
-            {cards.map((p) => (
-              <Card key={p.id} p={p} lang={lang} onOpen={open(p.id)} />
-            ))}
+        {searchVisible && (
+          <div className="mb-5">
+            <input
+              ref={inputRef}
+              type="search"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              aria-label={t.search}
+              placeholder={t.search}
+              className="w-full rounded-control border border-input-border bg-white px-3 py-2.5 text-[13px] text-input-ink outline-none focus:outline-2 focus:outline-offset-3 focus:outline-focus focus:outline-solid"
+            />
           </div>
         )}
-        {rows.map((p) => (
-          <Row key={p.id} p={p} lang={lang} onOpen={open(p.id)} />
-        ))}
 
-        {archive.length > 0 && (
-          <>
-            <SectionHeading className="mt-[30px]">{t.archive}</SectionHeading>
-            <p className="m-0 mb-1 text-[11px] leading-[1.6] text-lead">{t.archiveLead}</p>
-            {archive.map((p) => (
-              <Row key={p.id} p={p} lang={lang} onOpen={open(p.id)} compact />
-            ))}
-          </>
-        )}
-      </div>
+        <div className="pb-2">
+          {visible.length === 0 && <p className="m-0 mt-5 text-[12px] text-muted">{t.noProjects}</p>}
 
-      <ViewTail>{t.projectHint}</ViewTail>
-    </ViewFrame>
+          {heroes.length > 0 && (
+            <>
+              <SectionHeading>{t.featured}</SectionHeading>
+              {heroes.map((p) => (
+                <Hero key={p.id} p={p} lang={lang} onOpen={open(p.id)} />
+              ))}
+            </>
+          )}
+
+          {cards.length + rows.length > 0 && <SectionHeading>{t.moreWork}</SectionHeading>}
+          {cards.length > 0 && (
+            <div className="grid grid-cols-2 gap-3 max-sm:gap-2.5 max-xs:grid-cols-1">
+              {cards.map((p) => (
+                <Card key={p.id} p={p} lang={lang} onOpen={open(p.id)} />
+              ))}
+            </div>
+          )}
+          {rows.map((p) => (
+            <Row key={p.id} p={p} lang={lang} onOpen={open(p.id)} />
+          ))}
+
+          {archive.length > 0 && (
+            <>
+              <SectionHeading top="mt-[30px]">{t.archive}</SectionHeading>
+              <p className="m-0 mb-1 text-[11px] leading-[1.6] text-lead">{t.archiveLead}</p>
+              {archive.map((p) => (
+                <Row key={p.id} p={p} lang={lang} onOpen={open(p.id)} compact />
+              ))}
+            </>
+          )}
+        </div>
+
+        <ViewTail>{t.projectHint}</ViewTail>
+      </ViewFrame>
+    </div>
   );
 }

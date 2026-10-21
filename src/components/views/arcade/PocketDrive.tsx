@@ -89,10 +89,10 @@ const isTyping = (el: Element | null) =>
 const normKey = (key: string) => (key.length === 1 ? key.toLowerCase() : key);
 
 const DIRS = [
-  ['ArrowLeft', '←', 'Left'],
-  ['ArrowUp', '↑', 'Up'],
-  ['ArrowDown', '↓', 'Down'],
-  ['ArrowRight', '→', 'Right'],
+  ['ArrowLeft', '←', 'left'],
+  ['ArrowUp', '↑', 'up'],
+  ['ArrowDown', '↓', 'down'],
+  ['ArrowRight', '→', 'right'],
 ] as const;
 
 const pad4 = (n: number) => String(n).padStart(4, '0');
@@ -208,7 +208,7 @@ export default function PocketDrive() {
               <button
                 key={dir}
                 type="button"
-                aria-label={label}
+                aria-label={l[label]}
                 className="h-[34px] w-[42px] cursor-pointer touch-none rounded-[6px] border border-drive-control-border bg-drive-control text-[19px] font-semibold text-drive-control-ink select-none active:bg-drive-control-active max-sm:h-[38px] max-sm:min-w-[47px]"
                 onPointerDown={press(dir)}
                 onPointerUp={release(dir)}

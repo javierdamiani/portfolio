@@ -34,24 +34,16 @@ describe('projects data', () => {
     }
   });
 
-  it('has tags, a lowercase search string and localized image alts', () => {
+  it('has tags and a lowercase search string', () => {
     for (const p of projects) {
       expect(p.tags.length, p.id).toBeGreaterThan(0);
       expect(p.search, p.id).toBe(p.search.toLowerCase());
       expect(p.search, p.id).toContain(p.name.toLowerCase().split(' ')[0]);
-      for (const img of p.images) {
-        expect(img.src, p.id).toBeTruthy();
-        expect(filled(img.alt), `${p.id} image alt`).toBe(true);
-      }
     }
   });
 
-  it('has screenshots for the projects that ship them', () => {
-    expect(byId('noa')?.images).toHaveLength(5);
-    expect(byId('comic')?.images).toHaveLength(5);
-    expect(byId('pokecats')?.images).toHaveLength(5);
-    expect(byId('around')?.images).toHaveLength(4);
-    expect(byId('learn')?.images).toHaveLength(5);
+  it('carries no image metadata (screenshots live in project-images.ts)', () => {
+    for (const p of projects) expect(p, p.id).not.toHaveProperty('images');
   });
 
   it('only uses https urls', () => {

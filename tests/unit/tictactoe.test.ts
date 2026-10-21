@@ -57,4 +57,30 @@ describe('tictactoe idealMove', () => {
     expect(idealMove(noCorners, 'O', () => 0)).toBe(3);
     expect(idealMove(noCorners, 'O', () => 0.99)).toBe(5);
   });
+  it('against a double threat blocks the first one found (lowest free cell, like the prototype)', () => {
+    // X threatens 2 ([0,1,2]) and 6 ([0,3,6]); O has no win available.
+    expect(idealMove(parse('XX.XO...O'), 'O')).toBe(2);
+    // X threatens 8 ([6,7,8], LINES[2]) and 2 ([2,4,6], LINES[7]): cells are scanned in index order.
+    expect(idealMove(parse('.O..XOXX.'), 'O')).toBe(2);
+  });
+
+  it('wins on a diagonal instead of blocking', () => {
+    // O can finish [0,4,8]; X threatens 8 on the bottom row.
+    const main = parse('O.X.O.XX.');
+    expect(idealMove(main, 'O')).toBe(8);
+    // O can finish [2,4,6] at 6, while X threatens 6 via the left column and nothing else.
+    const anti = parse('X.OXO..X.');
+    const move = idealMove(anti, 'O');
+    expect(move).toBe(6);
+    const next = anti.slice();
+    next[move] = 'O';
+    expect(resultFor(next)?.winner).toBe('O');
+  });
+
+  it('returns -1 on any full board, whoever plays', () => {
+    for (const b of ['XOXOXOOXO', 'XOXXOOOXX', 'XXXOOXOXO']) {
+      expect(idealMove(parse(b), 'O')).toBe(-1);
+      expect(idealMove(parse(b), 'X')).toBe(-1);
+    }
+  });
 });

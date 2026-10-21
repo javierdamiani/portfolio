@@ -1,42 +1,5 @@
-import type { Localized, Project, ProjectImage, ProjectKind } from '@/types';
+import type { Project, ProjectKind } from '@/types';
 import { SITE } from '@/data/site';
-
-import noa01 from '@/assets/projects/noa/01.png';
-import noa02 from '@/assets/projects/noa/02.png';
-import noa03 from '@/assets/projects/noa/03.png';
-import noa04 from '@/assets/projects/noa/04.png';
-import noa05 from '@/assets/projects/noa/05.png';
-import comic01 from '@/assets/projects/comic-nest/01.png';
-import comic02 from '@/assets/projects/comic-nest/02.png';
-import comic03 from '@/assets/projects/comic-nest/03.png';
-import comic04 from '@/assets/projects/comic-nest/04.png';
-import comic05 from '@/assets/projects/comic-nest/05.png';
-import cats01 from '@/assets/projects/pokecats/01.png';
-import cats02 from '@/assets/projects/pokecats/02.png';
-import cats03 from '@/assets/projects/pokecats/03.png';
-import cats04 from '@/assets/projects/pokecats/04.png';
-import cats05 from '@/assets/projects/pokecats/05.png';
-import around01 from '@/assets/projects/around-us/01.png';
-import around02 from '@/assets/projects/around-us/02.png';
-import around03 from '@/assets/projects/around-us/03.png';
-import around04 from '@/assets/projects/around-us/04.png';
-import learn01 from '@/assets/projects/learning-to-learn/01.png';
-import learn02 from '@/assets/projects/learning-to-learn/02.png';
-import learn03 from '@/assets/projects/learning-to-learn/03.png';
-import learn04 from '@/assets/projects/learning-to-learn/04.png';
-import learn05 from '@/assets/projects/learning-to-learn/05.png';
-
-/** Builds a gallery with alt texts like "NOA — screen 1" / "NOA — pantalla 1". */
-const gallery = (name: string, srcs: ProjectImage['src'][], captions?: Localized[]): ProjectImage[] =>
-  srcs.map((src, i) => ({
-    src,
-    alt: {
-      en: `${name} — ${captions?.[i]?.en ?? `screen ${i + 1}`}`,
-      es: `${name} — ${captions?.[i]?.es ?? `pantalla ${i + 1}`}`,
-    },
-  }));
-
-const HOME: Localized = { en: 'home screen', es: 'pantalla de inicio' };
 
 const raw: Project[] = [
   {
@@ -53,7 +16,6 @@ const raw: Project[] = [
       es: 'Desarrollo de interfaces frontend para un marketplace de tickets deportivos: listados, compras, manejo de estado e integraciones con APIs y tecnología blockchain.',
     },
     link: SITE.links.betsell,
-    images: [],
     search: 'betsell react typescript react query web3 marketplace tickets sports blockchain',
   },
   {
@@ -70,7 +32,6 @@ const raw: Project[] = [
       es: 'Diseño y desarrollo de experiencias web responsive para Universidad Continental: campañas, páginas de carreras y mejoras de rendimiento.',
     },
     link: SITE.links.uc,
-    images: [],
     search: 'universidad continental education web landing campaigns vite tailwind javascript',
   },
   {
@@ -86,7 +47,6 @@ const raw: Project[] = [
       en: 'A collaborative platform conceived to connect players through the games they love. Built with a multidisciplinary team.',
       es: 'Una plataforma colaborativa para conectar jugadores según los videojuegos que disfrutan. Desarrollada con un equipo multidisciplinario.',
     },
-    images: gallery('NOA', [noa01, noa02, noa03, noa04, noa05], [HOME]),
     search: 'never one alone noa gaming community players chat react typescript',
   },
   {
@@ -102,11 +62,6 @@ const raw: Project[] = [
       en: 'A collaborative full-stack comic store, with product browsing and shopping experiences built together with a development team.',
       es: 'E-commerce full-stack de cómics desarrollado en equipo, con catálogo e interacciones de compra.',
     },
-    images: gallery(
-      'Comic Nest',
-      [comic01, comic02, comic03, comic04, comic05],
-      [{ en: 'comic catalog', es: 'catálogo de cómics' }],
-    ),
     search: 'comic nest ecommerce store full-stack react node express mongodb no country',
   },
   {
@@ -124,7 +79,6 @@ const raw: Project[] = [
     },
     link: 'https://pokecats-six.vercel.app/',
     repo: 'https://github.com/javierdamiani/pokeCats-javierdamiani-frontend',
-    images: gallery('PokeCats', [cats01, cats02, cats03, cats04, cats05], [HOME]),
     search: 'pokecats pokemon cats adoption react pokeapi',
   },
   {
@@ -142,7 +96,6 @@ const raw: Project[] = [
     },
     link: 'https://fifa-games.vercel.app/',
     repo: 'https://github.com/javierdamiani/fifa_games',
-    images: [],
     search: 'dentro del terreno fifa football soccer futbol data analytics react',
   },
   {
@@ -159,11 +112,6 @@ const raw: Project[] = [
       es: 'Aplicación full-stack para compartir fotos con registro, inicio de sesión, publicación y eliminación de tarjetas, sobre una API en Node.js y MongoDB.',
     },
     repo: 'https://github.com/javierdamiani/react-around-api-full_es',
-    images: gallery(
-      'Around the U.S.',
-      [around01, around02, around03, around04],
-      [{ en: 'sign-in screen', es: 'pantalla de inicio de sesión' }],
-    ),
     search: 'around the us photos full-stack react node express mongodb auth tripleten',
   },
   {
@@ -181,7 +129,6 @@ const raw: Project[] = [
     },
     link: 'https://tripleten-firstproject.vercel.app/',
     repo: 'https://github.com/javierdamiani/tripleten-firstproject',
-    images: gallery('Learning to learn', [learn01, learn02, learn03, learn04, learn05], [HOME]),
     search: 'learning to learn html css first project tripleten bootcamp',
   },
   {
@@ -199,7 +146,6 @@ const raw: Project[] = [
     },
     link: 'https://javierdamiani.github.io/web_project_3_esp/',
     repo: 'https://github.com/javierdamiani/web_project_3_esp',
-    images: [],
     search: 'de patria a patria html css flexbox grid responsive layout',
   },
   {
@@ -216,7 +162,6 @@ const raw: Project[] = [
       es: 'Una pequeña herramienta en Python que lee un archivo de texto y reporta el número de palabras y la frecuencia de cada letra.',
     },
     repo: 'https://github.com/javierdamiani/bookbot',
-    images: [],
     search: 'bookbot python cli text analysis words letters',
   },
 ];

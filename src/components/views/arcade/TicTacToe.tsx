@@ -100,7 +100,7 @@ export default function TicTacToe() {
         <div
           className="inline-flex shrink-0 gap-[2px] rounded-[7px] border border-arcade-mode-border bg-arcade-mode p-[3px]"
           role="group"
-          aria-label="Players"
+          aria-label={l.playersLabel}
         >
           {(['cpu', 'duo'] as const).map((mode) => (
             <button
@@ -132,7 +132,7 @@ export default function TicTacToe() {
                   type="button"
                   role="gridcell"
                   className={`grid aspect-square cursor-pointer place-items-center rounded-[5px] text-[clamp(38px,5vw,55px)] leading-none transition-colors duration-[130ms] enabled:hover:bg-xo-hover disabled:cursor-default ${value === 'O' ? 'font-normal' : 'font-medium'} ${tone}`}
-                  aria-label={`${l.xo}, ${i + 1}: ${value || 'empty'}`}
+                  aria-label={`${l.xo}, ${i + 1}: ${value || l.emptyCell}`}
                   disabled={Boolean(value || g.result || cpuTurn)}
                   onClick={() => takeCell(i)}
                 >

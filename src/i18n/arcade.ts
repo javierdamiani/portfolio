@@ -39,6 +39,13 @@ export const ARCADE_DICT = {
     driveHint: 'Keep moving to avoid incoming cars.',
     steer: 'Move car',
     none: 'A little break between projects.',
+    playersLabel: 'Players',
+    emptyCell: 'empty',
+    gamesTabs: 'Arcade games',
+    left: 'Left',
+    up: 'Up',
+    down: 'Down',
+    right: 'Right',
   },
   es: {
     title: 'Un pequeño descanso.',
@@ -77,6 +84,13 @@ export const ARCADE_DICT = {
     driveHint: 'Muévete para evitar los carros que vienen.',
     steer: 'Mover carrito',
     none: 'Un recreo entre proyectos.',
+    playersLabel: 'Jugadores',
+    emptyCell: 'vacía',
+    gamesTabs: 'Juegos del arcade',
+    left: 'Izquierda',
+    up: 'Arriba',
+    down: 'Abajo',
+    right: 'Derecha',
   },
 } as const;
 

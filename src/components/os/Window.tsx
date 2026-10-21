@@ -4,6 +4,7 @@ import { useOs } from '@/components/os/OsContext';
 import Sidebar from '@/components/os/Sidebar';
 import { BackIcon, OverviewIcon, SearchIcon, WorkIcon } from '@/components/os/icons';
 import { VIEWS, WINDOW_TITLE_KEY } from '@/components/views/registry';
+import { projects } from '@/data/projects';
 import { dragBox, resizeBox, WINDOW_ARIA, type Stage } from '@/lib/windows';
 
 interface WindowProps {
@@ -21,6 +22,8 @@ interface Gesture {
   y: number;
   start: WindowBox;
   stage: Stage;
+  /** Latest geometry, painted straight onto the DOM; committed to state once on pointerup. */
+  live: WindowBox | null;
 }
 
 const toolButton =
@@ -43,10 +46,9 @@ export default function Window({ state, active, printable, getStage, setBox }: W
     searchVisible,
   } = useOs();
   const { id, box, maximized, minimized, z } = state;
+  const sectionRef = useRef<HTMLElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const gesture = useRef<Gesture | null>(null);
-  const boxRef = useRef(box);
-  boxRef.current = box;
 
   // New content in a reused window: scroll to top; terminal gets keyboard focus.
   useEffect(() => {
@@ -66,6 +68,7 @@ export default function Window({ state, active, printable, getStage, setBox }: W
       y: e.clientY,
       start: box,
       stage: getStage(),
+      live: null,
     };
   };
 
@@ -75,11 +78,22 @@ export default function Window({ state, active, printable, getStage, setBox }: W
     const dx = e.clientX - g.x;
     const dy = e.clientY - g.y;
     const fn = g.kind === 'drag' ? dragBox : resizeBox;
-    setBox(id, fn(boxRef.current, g.start, dx, dy, g.stage));
+    const next = fn(g.live ?? g.start, g.start, dx, dy, g.stage);
+    g.live = next;
+    // Per-frame geometry bypasses React so the OS context (and the whole app) does not re-render.
+    const el = sectionRef.current;
+    if (!el) return;
+    el.style.left = `${next.left}px`;
+    el.style.top = `${next.top}px`;
+    el.style.width = `${next.width}px`;
+    el.style.height = `${next.height}px`;
   };
 
   const end = (e: ReactPointerEvent<HTMLElement>) => {
-    if (gesture.current?.pointerId === e.pointerId) gesture.current = null;
+    const g = gesture.current;
+    if (g?.pointerId !== e.pointerId) return;
+    gesture.current = null;
+    if (g.live) setBox(id, g.live);
   };
 
   const onToolbarDown = (e: ReactPointerEvent<HTMLElement>) => {
@@ -95,18 +109,21 @@ export default function Window({ state, active, printable, getStage, setBox }: W
     begin('resize', e);
   };
 
+  // Mid-gesture re-renders (e.g. focus) must not snap the window back to the committed box.
+  const b = gesture.current?.live ?? box;
   // Geometry is the only inline style allowed (SPEC §3). Mobile geometry lives in max-sm: classes.
   const style: CSSProperties = isMobile
     ? { zIndex: z }
     : maximized
       ? { left: 18, top: 16, width: 'calc(100% - 36px)', height: 'calc(100% - 111px)', zIndex: z }
-      : { left: box.left, top: box.top, width: box.width, height: box.height, zIndex: z };
+      : { left: b.left, top: b.top, width: b.width, height: b.height, zIndex: z };
 
   const View = VIEWS[id];
   const dataState = minimized ? 'minimized' : maximized ? 'maximized' : 'normal';
 
   return (
     <section
+      ref={sectionRef}
       aria-label={`${WINDOW_ARIA[id]} window`}
       data-app={id}
       data-state={dataState}
@@ -128,7 +145,8 @@ export default function Window({ state, active, printable, getStage, setBox }: W
         onPointerUp={end}
         onPointerCancel={end}
         onDoubleClick={(e) => {
-          if (!(e.target as Element).closest('button')) maximizeWindow(id);
+          if (isMobile || (e.target as Element).closest('button')) return;
+          maximizeWindow(id);
         }}
         className="relative flex h-[52px] min-h-[52px] cursor-grab touch-none items-center gap-[15px] border-b border-toolbar-border bg-toolbar px-[18px] select-none active:cursor-grabbing max-sm:h-[51px] max-sm:min-h-[51px] max-sm:cursor-default max-sm:px-[13px] print:hidden"
       >
@@ -223,8 +241,8 @@ export default function Window({ state, active, printable, getStage, setBox }: W
         </div>
       </div>
 
-      <footer className="flex h-6 min-h-6 items-center justify-between border-t border-status-border bg-status pr-[15px] pl-[213px] text-[10px] text-status-ink max-md:pl-[184px] max-sm:h-[22px] max-sm:min-h-[22px] max-sm:px-[13px] print:hidden">
-        <span>{id === 'work' ? t.fileCount : t.myCorner}</span>
+      <footer className="flex h-6 min-h-6 items-center justify-between border-t border-status-border bg-status pr-[26px] pl-[213px] text-[10px] text-status-ink max-md:pl-[184px] max-sm:h-[22px] max-sm:min-h-[22px] max-sm:px-[13px] print:hidden">
+        <span>{id === 'work' ? `${projects.length} ${t.itemsWord}` : t.myCorner}</span>
         <span>{t.status}</span>
       </footer>
 

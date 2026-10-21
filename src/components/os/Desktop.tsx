@@ -17,6 +17,9 @@ const MOBILE_QUERY = '(max-width: 760px)';
 const HISTORY_LIMIT = 20;
 const TOAST_MS = 2200;
 
+/** Browser chrome colour per wallpaper (matches --color-wall* in global.css). */
+const THEME_COLOR: Record<Wallpaper, string> = { light: '#e7e8ea', peach: '#e5e4e1', night: '#303239' };
+
 const isWallpaper = (v: unknown): v is Wallpaper => WALLPAPERS.includes(v as Wallpaper);
 
 /** Top-most visible window (highest z, not minimized). */
@@ -214,6 +217,21 @@ export default function Desktop({ images, portrait }: DesktopProps) {
     document.documentElement.lang = lang;
   }, [lang]);
 
+  useEffect(() => {
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', THEME_COLOR[wallpaper]);
+  }, [wallpaper]);
+
+  // Leaving the mobile layout (rotation / resize): mobile boxes are meaningless on desktop, so
+  // lay every window out again for the current stage.
+  const wasMobile = useRef(false);
+  useEffect(() => {
+    const leftMobile = wasMobile.current && !isMobile;
+    wasMobile.current = isMobile;
+    if (!leftMobile || windowsRef.current.length === 0) return;
+    const stage = getStage();
+    commit(windowsRef.current.map((w) => ({ ...w, box: initialBox(w.id, stage) })));
+  }, [isMobile, commit, getStage]);
+
   useEffect(() => () => clearTimeout(toastTimer.current), []);
 
   // Global keyboard shortcuts.
@@ -346,7 +364,8 @@ export default function Desktop({ images, portrait }: DesktopProps) {
                 key={i}
                 state={w}
                 active={w.id === activeId}
-                printable={printableId !== null && w.id === printableId}
+                // Native Cmd+P (no explicit print target) prints the active window.
+                printable={printableId !== null ? w.id === printableId : w.id === activeId}
                 getStage={getStage}
                 setBox={setBox}
               />

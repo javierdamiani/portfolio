@@ -1,7 +1,11 @@
 import type { JourneyItem } from '@/types';
 import { SITE } from '@/data/site';
 
-/** Career timeline, most recent first. */
+/**
+ * Career timeline, most recent first.
+ * Convention: technical job titles stay in English in both languages (as on the CV and
+ * LinkedIn); qualifiers, programs and descriptions are translated.
+ */
 export const journey: JourneyItem[] = [
   {
     when: { en: '2025 — Present', es: '2025 — Actualidad' },
@@ -27,7 +31,7 @@ export const journey: JourneyItem[] = [
   },
   {
     when: { en: '2024', es: '2024' },
-    role: { en: 'Full-stack Developer', es: 'Desarrollador full-stack' },
+    role: { en: 'Full-stack Developer', es: 'Full-stack Developer' },
     org: 'No Country',
     desc: {
       en: 'Work simulation in a multidisciplinary team building Comic Nest, a comic e-commerce with React, Node.js, MongoDB and Cloudinary, using agile practices.',

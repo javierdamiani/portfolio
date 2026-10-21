@@ -115,4 +115,71 @@ describe('drive engine', () => {
     };
     expect(play()).toBe(play());
   });
+  it('collides at exactly 20px sideways but not at 21px (5px side margins)', () => {
+    const a = { x: 100, y: 100, w: 31, h: 53 };
+    expect(collides(a, { ...a, x: 120 })).toBe(true);
+    expect(collides(a, { ...a, x: 121 })).toBe(false);
+    expect(collides(a, { ...a, x: 80 })).toBe(true);
+    expect(collides(a, { ...a, x: 79 })).toBe(false);
+    // 7px lengthwise margins: 53 - 14 = 39px of overlap budget.
+    expect(collides(a, { ...a, y: 138 })).toBe(true);
+    expect(collides(a, { ...a, y: 139 })).toBe(false);
+  });
+
+  /** A state with no spawn due and the player parked away from the traffic. */
+  const quiet = (time = 0) => {
+    const s = createDriveState();
+    s.time = time;
+    s.spawn = 100;
+    s.player.x = PLAYER_BOUNDS.minX;
+    return s;
+  };
+
+  it('moves enemies at min(255, 130 + t*3.3) px/s', () => {
+    for (const t0 of [0, 10, 30, 37.84, 60, 500]) {
+      const s = quiet(t0);
+      s.enemies = [{ x: LANES[2], y: 0, w: 31, h: 53 }];
+      stepDrive(s, 0.02, new Set(), () => 0.5);
+      const t = t0 + 0.02;
+      expect(s.enemies[0]!.y).toBeCloseTo(Math.min(255, 130 + t * 3.3) * 0.02, 9);
+    }
+  });
+
+  it('schedules the next spawn at max(.46, 1.12 - t*.008) + rnd*.28', () => {
+    for (const [t, rnd] of [
+      [0, 0],
+      [0, 0.99],
+      [40, 0.5],
+      [82.5, 0.25],
+      [200, 0.7],
+    ] as const) {
+      const s = quiet(t);
+      s.spawn = 0;
+      stepDrive(s, 0, new Set(), () => rnd);
+      expect(s.enemies).toHaveLength(1);
+      expect(s.spawn).toBeCloseTo(Math.max(0.46, 1.12 - t * 0.008) + rnd * 0.28, 12);
+    }
+  });
+
+  it('culls enemies once y >= 410', () => {
+    const s = quiet();
+    const car = (y: number) => ({ x: LANES[2], y, w: 31, h: 53 });
+    s.enemies = [car(409.99), car(410), car(500)];
+    stepDrive(s, 0, new Set(), () => 0.5);
+    expect(s.enemies.map((e) => e.y)).toEqual([409.99]);
+  });
+
+  it('colours a new car by random > 0.52', () => {
+    const spawnWith = (colourRoll: number) => {
+      const s = quiet();
+      s.spawn = 0;
+      const rolls = [0, colourRoll, 0]; // lane, colour, next spawn
+      stepDrive(s, 0, new Set(), () => rolls.shift() ?? 0);
+      return s.enemies[0]!.color;
+    };
+    expect(spawnWith(0.53)).toBe('#b6c9d1');
+    expect(spawnWith(0.99)).toBe('#b6c9d1');
+    expect(spawnWith(0.52)).toBe('#d8bda8');
+    expect(spawnWith(0)).toBe('#d8bda8');
+  });
 });

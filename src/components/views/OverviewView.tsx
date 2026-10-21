@@ -32,7 +32,7 @@ export default function OverviewView() {
           <Lines text={t.overviewFocusText} />
         </Card>
         <Card title={t.overviewContact}>
-          <a href={`mailto:${SITE.email}`} className="text-overview-strong hover:underline">
+          <a href={`mailto:${SITE.email}`} className="text-overview-strong underline underline-offset-2">
             {SITE.email}
           </a>
         </Card>

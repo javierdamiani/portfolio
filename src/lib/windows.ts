@@ -72,11 +72,20 @@ export function resizeBox(box: WindowBox, start: WindowBox, dx: number, dy: numb
   };
 }
 
-/** Keep a window reachable after the viewport shrinks (prototype `resize` listener). */
+/**
+ * Keep a window fully on-stage after the viewport changes: cap its size to the stage (respecting
+ * MIN_WINDOW unless the stage itself is smaller), then pull it back inside.
+ */
 export function fitBox(box: WindowBox, stage: Stage): WindowBox {
+  // Never cap below the minimum size, unless the stage itself is narrower/shorter than it.
+  const maxWidth = Math.max(stage.width - 25, Math.min(MIN_WINDOW.width, stage.width));
+  const maxHeight = Math.max(stage.height - 126, Math.min(MIN_WINDOW.height, stage.height));
+  const width = Math.min(box.width, maxWidth);
+  const height = Math.min(box.height, maxHeight);
   return {
-    ...box,
-    left: Math.max(0, Math.min(box.left, stage.width - 90)),
-    top: Math.max(0, Math.min(box.top, stage.height - 90)),
+    width,
+    height,
+    left: clamp(box.left, 0, Math.max(0, stage.width - width - 8)),
+    top: clamp(box.top, 0, Math.max(0, stage.height - height - 85)),
   };
 }

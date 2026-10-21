@@ -47,7 +47,7 @@ export default function ContactView() {
       <PrimaryButton onClick={onCopy}>
         {t.copy} <span aria-hidden="true">⧉</span>
       </PrimaryButton>
-      <SectionHeading className="mt-11">{t.social}</SectionHeading>
+      <SectionHeading top="mt-11">{t.social}</SectionHeading>
       <div className="mt-10 flex flex-wrap gap-[11px]">
         <SoftLink href={SITE.links.linkedin}>LinkedIn ↗</SoftLink>
         <SoftLink href={SITE.links.github}>GitHub ↗</SoftLink>

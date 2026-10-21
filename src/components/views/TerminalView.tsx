@@ -12,6 +12,11 @@ interface LogEntry {
 
 const projectNames = projects.map((p) => p.name);
 
+const TERMINAL_LABELS = {
+  en: { input: 'Terminal command' },
+  es: { input: 'Comando de la terminal' },
+} as const;
+
 export default function TerminalView() {
   const { lang, t, openApp, cycleWallpaper } = useOs();
   const [log, setLog] = useState<LogEntry[]>([]);
@@ -35,6 +40,7 @@ export default function TerminalView() {
 
   function submit(e: SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (!value.trim()) return; // like the prototype: blank input is ignored
     const command = value;
     setValue('');
     const result = runCommand(command, { lang, t, email: SITE.email, projectNames });
@@ -82,7 +88,7 @@ export default function TerminalView() {
           autoCapitalize="off"
           autoCorrect="off"
           enterKeyHint="send"
-          aria-label="Terminal command"
+          aria-label={TERMINAL_LABELS[lang].input}
           placeholder="help"
           className="min-w-0 flex-1 bg-transparent text-terminal-input caret-terminal-input outline-none placeholder:text-terminal-placeholder focus-visible:outline-none"
         />

@@ -87,6 +87,77 @@ test.describe('desktop 1440×900', () => {
     await page.mouse.up();
     expect(await pos()).toEqual([left! - 120, top! + 40]);
   });
+
+  test('the window re-fits when the viewport shrinks from 1440×900 to 900×700', async ({ page }) => {
+    await page.goto('/');
+    const win = windows(page);
+    await expect(win).toBeVisible();
+    await page.setViewportSize({ width: 900, height: 700 });
+    await expect
+      .poll(async () => {
+        const b = await win.boundingBox();
+        return b ? b.x >= 0 && b.x + b.width <= 900 && b.y + b.height <= 700 : false;
+      })
+      .toBe(true);
+  });
+
+  test('opening a project from a scrolled list starts the detail at the top', async ({ page }) => {
+    await page.goto('/');
+    const panel = windows(page).locator('[data-slot="window-panel"]');
+    await expect(panel).toBeVisible();
+    await panel.evaluate((el) => (el.scrollTop = 450));
+    await panel.getByRole('button', { name: /PokeCats/ }).click();
+    await expect(panel.getByRole('button', { name: '← All projects' })).toBeVisible();
+    expect(await panel.evaluate((el) => el.scrollTop)).toBe(0);
+  });
+
+  test('search filters the project list', async ({ page }) => {
+    await page.goto('/');
+    const win = windows(page);
+    await win.locator('header').getByRole('button', { name: 'Search projects' }).click();
+    await win.getByRole('searchbox', { name: 'Search projects' }).fill('comic');
+    const results = win.locator('[data-slot="window-panel"]').getByRole('button');
+    await expect(results).toHaveCount(1);
+    await expect(results.first()).toContainText('Comic Nest');
+  });
+
+  test('copying the email in Contact shows the toast', async ({ page, context }) => {
+    await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+    await page.goto('/');
+    await page.getByRole('button', { name: 'Open Contact' }).click();
+    await windows(page)
+      .getByRole('button', { name: /Copy email/ })
+      .click();
+    await expect(page.getByRole('status')).toHaveText('Email copied');
+  });
+
+  test('the dock indicator turns off when the window is minimized', async ({ page }) => {
+    await page.goto('/');
+    const dockItem = page.getByRole('button', { name: 'Open Projects' });
+    await expect(dockItem).toHaveAttribute('data-open', '');
+    await windows(page).getByRole('button', { name: 'Minimize window' }).click();
+    await expect(dockItem).not.toHaveAttribute('data-open');
+    await expect(dockItem.locator('i')).toHaveCSS('opacity', '0');
+  });
+
+  test('native print (no explicit target) keeps the active window', async ({ page }) => {
+    await page.goto('/');
+    await expect(windows(page)).toBeVisible();
+    await page.emulateMedia({ media: 'print' });
+    await expect(windows(page)).toBeVisible();
+  });
+});
+
+test.describe('small phone 320×640', () => {
+  test.use({ viewport: { width: 320, height: 640 }, hasTouch: true });
+
+  test('the whole dock fits on screen', async ({ page }) => {
+    await page.goto('/');
+    const box = await page.getByRole('navigation', { name: 'App dock' }).boundingBox();
+    if (!box) throw new Error('no dock geometry');
+    expect(box.x).toBeGreaterThanOrEqual(0);
+    expect(box.x + box.width).toBeLessThanOrEqual(320);
+  });
 });
 
 test.describe('mobile 390×844', () => {

@@ -31,7 +31,6 @@ export interface Project {
   description: Localized;
   link?: string;
   repo?: string;
-  images: ProjectImage[];
   search: string;
 }
 export interface OptimizedImage {

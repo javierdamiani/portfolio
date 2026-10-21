@@ -3,6 +3,7 @@ import { getImage } from 'astro:assets';
 import Base from '@/layouts/Base.astro';
 import Desktop from '@/components/os/Desktop';
 import { projects } from '@/data/projects';
+import { projectImages } from '@/data/project-images';
 import type { OptimizedImage, ProjectImages } from '@/types';
 import hello from '@/assets/memoji/hello.png';
 
@@ -10,7 +11,7 @@ const images: ProjectImages = Object.fromEntries(
   await Promise.all(
     projects.map(async (project) => {
       const optimized: OptimizedImage[] = await Promise.all(
-        project.images.map(async ({ src, alt }) => {
+        (projectImages[project.id] ?? []).map(async ({ src, alt }) => {
           const img = await getImage({ src, width: 1280, format: 'webp', quality: 80 });
           return {
             src: img.src,

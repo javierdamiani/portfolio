@@ -162,8 +162,8 @@
   --color-detail-link-hover: #37606f; /* "Visit website" hover */
 
   /* ---------- Cover tones (one per CoverTone; bg + ink + accent) ---------- */
-  --color-cover-betsell: #253e49; /* BetSell deep teal */
-  --color-cover-betsell-ink: #ffffff; /* BetSell text */
+  --color-cover-betsell: #e2ebee; /* BetSell light teal tint (same hue as the brand #253e49) */
+  --color-cover-betsell-ink: #253e49; /* BetSell text: brand deep teal */
   --color-cover-uc: #f6e5dc; /* Universidad Continental card */
   --color-cover-uc-ink: #803a36; /* UC text */
   --color-cover-uc-deep: #904a45; /* UC detail cover */
